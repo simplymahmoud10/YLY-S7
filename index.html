@@ -14,12 +14,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg-deep);color:var(--white);font-family:'Poppins',sans-serif;overflow-x:hidden;cursor:none;user-select:none;}
-
-/* SMART SOFT CURSOR */
-.cursor{position:fixed;width:6px;height:6px;background:var(--gold-light);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition: width 0.2s, height 0.2s;}
-.cursor-ring{position:fixed;width:26px;height:26px;border:1px solid rgba(201,168,76,0.4);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:transform 0.08s ease-out;}
-body:active .cursor {width: 10px; height: 10px; background: var(--gold);}
+body{background:var(--bg-deep);color:var(--white);font-family:'Poppins',sans-serif;overflow-x:hidden;user-select:none;}
 
 #stars-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 /* NAV */
@@ -31,7 +26,7 @@ nav.scrolled{background:rgba(1,4,13,0.92);backdrop-filter:blur(20px);border-bott
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold-light);transition:width 0.3s;}
 .nav-links a:hover{color:var(--gold-light);}
 .nav-links a:hover::after{width:100%;}
-.nav-cta{font-family:'Orbitron',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;padding:10px 22px;border:1px solid var(--gold);text-decoration:none;background:transparent;cursor:none;transition:all 0.3s;}
+.nav-cta{font-family:'Orbitron',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;padding:10px 22px;border:1px solid var(--gold);text-decoration:none;background:transparent;cursor:pointer;transition:all 0.3s;}
 .nav-cta:hover{background:rgba(201,168,76,0.08);box-shadow:0 0 30px var(--gold-glow);}
 section{position:relative;z-index:1;}
 
@@ -44,7 +39,7 @@ section{position:relative;z-index:1;}
 .hero-title span{display:block;background:linear-gradient(135deg,#fff 0%,var(--gold-light) 50%,#fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hero-ar{font-family:'Cairo',sans-serif;font-size:22px;font-weight:300;color:var(--gold-light);margin:24px 0;direction:rtl;text-shadow:0 0 20px var(--gold-glow);animation:fadeUp 1s 0.6s both;}
 .hero-sub{font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:5px;color:var(--white-dim);margin-bottom:50px;animation:fadeUp 1s 0.8s both;}
-.hero-btn{display:inline-flex;align-items:center;gap:12px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:600;color:var(--bg-deep);background:var(--gold-light);padding:18px 44px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;border:none;cursor:none;position:relative;overflow:hidden;transition:all 0.3s;animation:fadeUp 1s 1s both;}
+.hero-btn{display:inline-flex;align-items:center;gap:12px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:600;color:var(--bg-deep);background:var(--gold-light);padding:18px 44px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;position:relative;overflow:hidden;transition:all 0.3s;animation:fadeUp 1s 1s both;}
 .hero-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-light));background-size:200%;animation:shimmer 3s infinite;}
 .hero-btn span{position:relative;z-index:1;}
 .hero-btn:hover{transform:translateY(-3px);box-shadow:0 20px 60px var(--gold-glow);}
@@ -72,7 +67,7 @@ section{position:relative;z-index:1;}
 .timeline-track::-webkit-scrollbar, .team-horizontal-track::-webkit-scrollbar{display:none;}
 .timeline-line, .team-horizontal-line{position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold),transparent);transform:translateY(-50%);z-index:0;}
 
-.timeline-card{flex:0 0 280px;margin:0 20px;position:relative;z-index:1;background:rgba(5,14,36,0.9);border:1px solid rgba(201,168,76,0.2);border-radius:4px;overflow:hidden;transition:all 0.4s;cursor:none;}
+.timeline-card{flex:0 0 280px;margin:0 20px;position:relative;z-index:1;background:rgba(5,14,36,0.9);border:1px solid rgba(201,168,76,0.2);border-radius:4px;overflow:hidden;transition:all 0.4s;cursor:pointer;}
 .timeline-card:hover{transform:translateY(-12px);border-color:var(--gold);box-shadow:0 30px 60px rgba(0,0,0,0.5),0 0 30px var(--gold-glow);}
 .timeline-img-ph{width:100%;height:160px;background:linear-gradient(135deg,#071645,#050e24);display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:48px;opacity:0.9;overflow:hidden;}
 .timeline-img-ph img{width:100%;height:100%;object-fit:cover;}
@@ -87,7 +82,7 @@ section{position:relative;z-index:1;}
 .slider-arrow:hover{background:rgba(201,168,76,0.1);border-color:var(--gold);box-shadow:0 0 20px var(--gold-glow);}
 
 /* NEW HORIZONTAL TEAM CARD */
-.person-card{flex:0 0 280px;margin:0 20px;background:rgba(5,14,36,0.9);border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:36px 24px;text-align:center;position:relative;z-index:1;transition:all 0.4s;cursor:none;}
+.person-card{flex:0 0 280px;margin:0 20px;background:rgba(5,14,36,0.9);border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:36px 24px;text-align:center;position:relative;z-index:1;transition:all 0.4s;cursor:default;}
 .person-card:hover{transform:translateY(-12px);border-color:var(--gold);box-shadow:0 30px 60px rgba(0,0,0,0.5),0 0 30px var(--gold-glow);}
 .person-avatar{width:100px;height:100px;border-radius:50%;border:2px solid rgba(201,168,76,0.4);background:linear-gradient(135deg,#071645,#050e24);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-family:'Cairo',sans-serif;font-size:26px;font-weight:700;color:var(--gold-light);position:relative;overflow:hidden;}
 .person-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;}
@@ -95,7 +90,7 @@ section{position:relative;z-index:1;}
 .person-name{font-family:'Cairo',sans-serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:16px;direction:rtl;}
 
 /* THE ANTIQUE LETTER ICON BUTTON */
-.letter-trigger-btn{background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold-light);font-size:18px;padding:8px 16px;border-radius:4px;cursor:none;transition:all 0.3s;display:inline-flex;align-items:center;justify-content:center;}
+.letter-trigger-btn{background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold-light);font-size:18px;padding:8px 16px;border-radius:4px;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;justify-content:center;}
 .letter-trigger-btn:hover{background:rgba(201,168,76,0.12);border-color:var(--gold);box-shadow:0 0 15px var(--gold-glow);}
 
 /* CINEMATIC TYPEWRITER OVERLAY */
@@ -111,7 +106,7 @@ section{position:relative;z-index:1;}
 #moments{padding:120px 60px;background: radial-gradient(circle at center, rgba(5,14,36,0.3) 0%, transparent 70%);}
 .memories-container{max-width:1200px;margin:60px auto 0;position:relative;min-height:650px;}
 .memories-wall{position:relative;width:100%;height:100%;min-height:550px;}
-.memory-card{position:absolute;background:rgba(10,25,60,0.25);backdrop-filter:blur(10px);border:1px solid rgba(201,168,76,0.18);padding:12px 12px 24px 12px;box-shadow:0 15px 35px rgba(0,0,0,0.4);transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);cursor:none;width:240px;transform-origin:center;}
+.memory-card{position:absolute;background:rgba(10,25,60,0.25);backdrop-filter:blur(10px);border:1px solid rgba(201,168,76,0.18);padding:12px 12px 24px 12px;box-shadow:0 15px 35px rgba(0,0,0,0.4);transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);cursor:pointer;width:240px;transform-origin:center;}
 .memory-card:hover{transform:scale(1.15) rotate(0deg) !important;z-index:50 !important;border-color:var(--gold);box-shadow:0 30px 60px rgba(0,0,0,0.7), 0 0 30px var(--gold-glow);}
 .memory-media-box{width:100%;height:180px;background:linear-gradient(135deg,#050e24,#071645);position:relative;overflow:hidden;border-radius:2px;}
 .memory-img-el, .memory-video-el{width:100%;height:100%;object-fit:cover;display:block;}
@@ -124,7 +119,7 @@ section{position:relative;z-index:1;}
 
 /* WATCH MEMORIES CONTROL CARD */
 .watch-memories-holder{display:flex;justify-content:center;margin-top:40px;}
-.watch-mem-btn{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;color:var(--gold-light);background:rgba(5,14,36,0.8);border:1px solid var(--gold);padding:16px 40px;letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;gap:14px;box-shadow:0 0 30px var(--gold-glow);transition:all 0.3s;cursor:none;}
+.watch-mem-btn{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;color:var(--gold-light);background:rgba(5,14,36,0.8);border:1px solid var(--gold);padding:16px 40px;letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;gap:14px;box-shadow:0 0 30px var(--gold-glow);transition:all 0.3s;cursor:pointer;}
 .watch-mem-btn:hover{background:var(--gold-light);color:var(--bg-deep);transform:scale(1.05);box-shadow:0 0 40px var(--gold-light);}
 .watch-mem-btn span{animation:pulse 2s infinite;width:10px;height:10px;background:var(--gold);border-radius:50%;display:inline-block;}
 
@@ -148,7 +143,7 @@ section{position:relative;z-index:1;}
 .goodbye-left{flex:1;max-width:550px;}
 .goodbye-title{font-family:'Cinzel',sans-serif;font-size:clamp(42px,5.5vw,80px);font-weight:900;line-height:1;letter-spacing:2px;background:linear-gradient(135deg,#fff 0%,var(--gold-light) 60%,#fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .goodbye-ar{font-family:'Cairo',sans-serif;font-size:20px;font-weight:300;color:var(--gold-light);margin:30px 0;direction:rtl;line-height:1.8;text-shadow:0 0 20px var(--gold-glow);}
-.goodbye-btn{display:inline-flex;align-items:center;gap:12px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:600;color:var(--bg-deep);background:var(--gold-light);padding:18px 44px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:none;transition:all 0.3s;}
+.goodbye-btn{display:inline-flex;align-items:center;gap:12px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:600;color:var(--bg-deep);background:var(--gold-light);padding:18px 44px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.3s;}
 .goodbye-btn:hover{transform:translateY(-3px);box-shadow:0 20px 60px var(--gold-glow);}
 .goodbye-right{flex:1;display:flex;justify-content:center;align-items:center;}
 .team-photo-frame{width:480px;height:380px;background:linear-gradient(135deg,#071645,#050e24);border:1px solid rgba(201,168,76,0.3);border-radius:4px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 50px rgba(0,0,0,0.5);}
@@ -173,7 +168,7 @@ footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);pa
 .social-btn.wa::before { content: 'W'; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; color: var(--gold-light); }
 
 .footer-made{font-family:'Cinzel',sans-serif;font-size:13px;color:var(--white-dim);margin-top:20px;letter-spacing:2px;}
-.made-name{color:var(--gold-light);cursor:none;text-shadow:0 0 20px var(--gold-glow);transition:text-shadow 0.3s;display:inline-block;user-select:none;}
+.made-name{color:var(--gold-light);cursor:default;text-shadow:0 0 20px var(--gold-glow);transition:text-shadow 0.3s;display:inline-block;user-select:none;}
 .made-name:hover{text-shadow:0 0 40px var(--gold-glow);}
 .footer-copy{font-family:'Poppins',sans-serif;font-size:10px;color:rgba(240,244,255,0.25);margin-top:16px;letter-spacing:2px;}
 
@@ -270,10 +265,8 @@ footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);pa
 </head>
 
 
-<body onclick="countClick()">
+<body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 <canvas id="stars-canvas"></canvas>
 
 <nav id="navbar">
@@ -305,8 +298,8 @@ footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);pa
       <div class="orbit-ring"></div>
       <div class="orbit-ring"></div>
       <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
-        <div class="planet" onclick="triggerPlanetUpload()">
-          <img src="/mnt/user-data/uploads/508744209_122132104004718808_4096096571045931910_n.jpg" class="planet-logo" id="planet-img-logo" alt="YLY">
+        <div class="planet" id="planet-el">
+          <img src="" class="planet-logo" id="planet-img-logo" alt="YLY" onerror="this.style.display='none'">
         </div>
         <input type="file" id="planet-file-input" class="hidden-file" accept="image/*" onchange="onPlanetLogoUploaded(event)">
       </div>
@@ -370,14 +363,13 @@ footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);pa
     <div class="goodbye-ar" id="goodbye-ar-text">سيبوناش خلاص…<br>له الحكاية مستمرة.</div>
     <button class="goodbye-btn" id="goodbye-cta-btn" onclick="document.getElementById('goodbye-modal').classList.add('active')">💛 THANK YOU, YLY</button>
   </div>
-  <div class="goodbye-right">
-    <div class="team-photo-frame" onclick="triggerGoodbyeFrameUpload()">
-      <div class="team-photo-ph" id="frame-ph-el">📸</div>
-      <img src="" id="goodbye-frame-img" style="display:none;" alt="Team Photo">
-      <div class="team-photo-next">Click to upload season memory photo ✨</div>
+    <div class="goodbye-right">
+      <div class="team-photo-frame" id="goodbye-frame-el">
+        <div class="team-photo-ph" id="frame-ph-el">📸</div>
+        <img src="" id="goodbye-frame-img" style="display:none;" alt="Team Photo">
+      </div>
+      <input type="file" id="goodbye-frame-input" class="hidden-file" accept="image/*" onchange="onGoodbyeFrameUploaded(event)">
     </div>
-    <input type="file" id="goodbye-frame-input" class="hidden-file" accept="image/*" onchange="onGoodbyeFrameUploaded(event)">
-  </div>
 </section>
 
 <footer>
@@ -393,7 +385,7 @@ footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);pa
     <a href="#" class="social-btn wa" id="wa-link-el" target="_blank"></a>
   </div>
   <div class="footer-made">Made with Love for <span class="made-name">YLY Kafr Elshikh</span></div>
-  <div class="footer-copy" id="footer-copy">© 2025–2026 YLY KAFR ELSHIKH. ALL RIGHTS RESERVED. · محمود فؤاد</div>
+  <div class="footer-copy" id="footer-copy">© 2025–2026 YLY KAFR ELSHIKH. ALL RIGHTS RESERVED. · <span id="made-by-trigger" style="cursor:default;color:inherit;" title="">محمود فؤاد</span></div>
 </footer>
 
 <div class="m-overlay" id="goodbye-modal">
@@ -597,7 +589,7 @@ const defaultD = {
     footerTitle: 'YLY KAFR ELSHIKH',
     copyright: '© 2025–2026 YLY KAFR ELSHIKH. ALL RIGHTS RESERVED. · محمود فؤاد',
     accentColor: '#c9a84c',
-    planetLogo: '/mnt/user-data/uploads/508744209_122132104004718808_4096096571045931910_n.jpg',
+    planetLogo: '',
     goodbyeFrame: ''
   },
   timeline:[
@@ -647,15 +639,8 @@ function drawStars(t){cx.clearRect(0,0,cv.width,cv.height);stars.forEach(s=>{con
 initStars();requestAnimationFrame(drawStars);
 window.addEventListener('resize',initStars);
 
-// ====== NEW SOFT CINEMATIC CURSOR ======
-const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-function animR(){rx+=(mx-rx)*0.15;ry+=(my-ry)*0.15;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animR);}animR();
-
 // ====== SCROLL INTERACTION ======
 window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',scrollY>50);});
-document.addEventListener('mousemove',e=>{const x=(e.clientX/innerWidth)*100,y=(e.clientY/innerHeight)*100;document.body.style.background=`radial-gradient(ellipse at ${x}% ${y}%, rgba(10,25,80,0.08) 0%, #01040d 80%)`;});
 
 // ====== BACKGROUND AUDIO SYSTEM ======
 let bgAudio = null;
@@ -667,13 +652,18 @@ function toggleBackgroundMusic(){
   else{ bgAudio.pause(); alert('Background Music Paused 🔇'); }
 }
 
-// ====== TRIPLE CLICK DOOR TO PANEL ======
+// ====== TRIPLE CLICK ON "محمود فؤاد" ONLY ======
 let cc=0,ct=null;
-function countClick(){
-  cc++;
-  if(cc>=3){cc=0;clearTimeout(ct);document.getElementById('admin-overlay').classList.add('active');return;}
-  clearTimeout(ct);ct=setTimeout(()=>cc=0,700);
+function setupAdminTrigger(){
+  const trigger = document.getElementById('made-by-trigger');
+  if(!trigger) return;
+  trigger.addEventListener('click', ()=>{
+    cc++;
+    if(cc>=3){ cc=0; clearTimeout(ct); document.getElementById('admin-overlay').classList.add('active'); return; }
+    clearTimeout(ct); ct=setTimeout(()=>cc=0, 700);
+  });
 }
+document.addEventListener('DOMContentLoaded', setupAdminTrigger);
 
 // ====== ADVANCED ROLE-BASED LOGIN HIERARCHY ======
 function doLogin(){
@@ -798,7 +788,11 @@ function applyGlobalAccentColor(){
   document.documentElement.style.setProperty('--gold-light', clr);
 }
 
-// ====== RENDER ALL STATIC TEXT COPIES ======
+function renderEverything(){
+  renderAllStaticTexts(); fillDashInputs(); applyGlobalAccentColor();
+  renderTimeline(); renderTeam(); renderMemories(); refreshScrollReveals();
+}
+
 function renderAllStaticTexts(){
   const tx = D.texts;
   document.getElementById('site-logo-text').textContent = tx.siteLogo;
@@ -825,7 +819,10 @@ function renderAllStaticTexts(){
   document.getElementById('goodbye-cta-btn').textContent = tx.goodbyeCta;
   document.getElementById('modal-goodbye-body').innerHTML = tx.modalGoodbye.replace(/\n/g, '<br>');
   document.getElementById('footer-logo-text').textContent = tx.footerTitle || tx.siteLogo;
-  document.getElementById('footer-copy').textContent = tx.copyright;
+  // حفاظ على الـ span بتاع محمود فؤاد عشان الـ admin trigger يشتغل
+  const copyText = tx.copyright.replace(/·?\s*محمود فؤاد\s*$/, '').trim();
+  document.getElementById('footer-copy').innerHTML = copyText + ' · <span id="made-by-trigger" style="cursor:default;color:inherit;">محمود فؤاد</span>';
+  setupAdminTrigger();
   
   document.getElementById('fb-link-el').href = tx.fbLink || '#';
   document.getElementById('wa-link-el').href = tx.waLink || '#';
@@ -983,26 +980,15 @@ function navigateLightbox(d) {
   openLightbox(next);
 }
 
-// ====== PLANET LOGO UPLOADER ======
+// ====== PLANET LOGO & GOODBYE FRAME UPLOADERS (handled by Firebase Storage module below) ======
 function triggerPlanetUpload(){ 
   if(currentRole==='shahd') return;
   document.getElementById('planet-file-input').click(); 
 }
-function onPlanetLogoUploaded(ev){
-  const f=ev.target.files[0]; if(!f)return;
-  const r=new FileReader(); r.onload=e=>{ D.texts.planetLogo = e.target.result; syncStorage(); saveFirebaseData(); renderAllStaticTexts(); };
-  r.readAsDataURL(f);
-}
 
-// ====== GOODBYE FRAME UPLOADER ======
 function triggerGoodbyeFrameUpload(){ 
   if(currentRole==='shahd') return;
   document.getElementById('goodbye-frame-input').click(); 
-}
-function onGoodbyeFrameUploaded(ev){
-  const f=ev.target.files[0]; if(!f)return;
-  const r=new FileReader(); r.onload=e=>{ D.texts.goodbyeFrame = e.target.result; syncStorage() ; saveFirebaseData(); renderAllStaticTexts(); };
-  r.readAsDataURL(f);
 }
 
 // ====== DASHBOARD TIMELINE HUB ======
@@ -1030,11 +1016,7 @@ function openTimelineModal(i){
   applyRoleDashboardRestrictions();
 }
 function closeTimelineModal(){ document.getElementById('timeline-edit-modal').classList.remove('active'); currentTlIdx=null; }
-function onTimelinePhotoUploaded(ev){
-  const f=ev.target.files[0];if(!f||currentTlIdx===null)return;
-  const r=new FileReader(); r.onload=e=>{ D.timeline[currentTlIdx].photo = e.target.result; alert('Card image cached successfully.'); };
-  r.readAsDataURL(f); ev.target.value='';
-}
+
 function saveFullTimelineInfo(){
   if(currentTlIdx===null)return; const node=D.timeline[currentTlIdx];
   if(currentRole !== 'shrouk') {
@@ -1092,11 +1074,7 @@ function openPhotoModal(i){
   applyRoleDashboardRestrictions();
 }
 function closePhotoModal(){ document.getElementById('team-edit-modal').classList.remove('active'); curIdx=null; }
-function onPhotoUploaded(ev){
-  const f=ev.target.files[0];if(!f||curIdx===null)return;
-  const r=new FileReader(); r.onload=e=>{ D.team[curIdx].photo = e.target.result; alert('Avatar binary cached code.'); };
-  r.readAsDataURL(f); ev.target.value='';
-}
+// ====== MEMBER AVATAR & TIMELINE PHOTO UPLOAD (handled by Firebase Storage module below) ======
 function saveFullMemberInfo(){
   if(curIdx===null)return; const m=D.team[curIdx];
   if(currentRole !== 'shrouk') {
@@ -1124,19 +1102,7 @@ function renderDashMem(){
     D.texts.momentsAr = document.getElementById('d-moments-ar').value;
   }
 }
-function onMemUploaded(ev){
-  if(currentRole==='shahd') return;
-  const f=ev.target.files[0];if(!f)return;
-  const mediaType = f.type.startsWith('video') ? 'video' : 'image';
-  const r=new FileReader();
-  r.onload=e=>{
-    const cap=prompt('Enter Memory Caption / Details:')||'لحظة غالية';
-    const date=prompt('Date Label (e.g. FEB 2026):','2026')||'2026';
-    D.memories.push({id:Date.now(),caption:cap,date,emoji:mediaType==='video'?'🎥':'📸',img:e.target.result,type:mediaType});
-    syncStorage(); saveFirebaseData(); renderMemories(); renderDashMem();
-  };
-  r.readAsDataURL(f); ev.target.value='';
-}
+// ====== MEMORY UPLOAD (handled by Firebase Storage module below) ======
 function editMem(i){
   if(currentRole==='shahd') return;
   const m=D.memories[i];
@@ -1165,12 +1131,8 @@ window.addEventListener('DOMContentLoaded',()=>{
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
 import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc
+  getFirestore, doc, setDoc, getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -1184,31 +1146,103 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
 
+// ====== CLOUDINARY UPLOAD (مجاني، بدون Firebase Storage) ======
+const CLOUD_NAME = "dwlk8qzwm";   // ← هتحطها بعد ما تعمل account
+const UPLOAD_PRESET = "yly_unsigned"; // ← هتحطها بعد ما تعمل preset
+
+window.uploadFileToStorage = async function(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", UPLOAD_PRESET);
+
+  const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`, {
+    method: "POST",
+    body: formData
+  });
+  if(!res.ok) throw new Error("Cloudinary upload failed");
+  const data = await res.json();
+  return data.secure_url;
+};
+
+// ====== SAVE TO FIRESTORE (URLs فقط، بدون base64) ======
 window.saveFirebaseData = async function () {
-
-   await setDoc(doc(db, "siteData", "main"), D);
-
-   console.log("Saved 🔥");
+  const safeD = JSON.parse(JSON.stringify(D));
+  const stripBase64 = s => (typeof s === 'string' && s.startsWith('data:')) ? null : s;
+  safeD.texts.planetLogo    = stripBase64(safeD.texts.planetLogo);
+  safeD.texts.goodbyeFrame  = stripBase64(safeD.texts.goodbyeFrame);
+  safeD.team     = safeD.team.map(m => ({...m, photo: stripBase64(m.photo)}));
+  safeD.timeline = safeD.timeline.map(t => ({...t, photo: stripBase64(t.photo)}));
+  safeD.memories = safeD.memories.map(m => ({...m, img: stripBase64(m.img)}));
+  await setDoc(doc(db, "siteData", "main"), safeD);
+  console.log("Saved to Firestore 🔥");
 };
 
 window.loadFirebaseData = async function () {
-
-   const snap = await getDoc(doc(db, "siteData", "main"));
-
-   if (snap.exists()) {
-
-      D = snap.data();
-
-      renderEverything();
-
-      console.log("Loaded 🔥");
-   }
+  const snap = await getDoc(doc(db, "siteData", "main"));
+  if (snap.exists()) { D = snap.data(); renderEverything(); console.log("Loaded 🔥"); }
 };
 
 loadFirebaseData();
+
+// ====== UPLOADS — للأدمن بس ======
+
+window.onMemUploaded = async function(ev) {
+  if(currentRole === 'visitor' || currentRole === 'shahd') return;
+  const f = ev.target.files[0]; if(!f) return;
+  const mediaType = f.type.startsWith('video') ? 'video' : 'image';
+  const cap  = prompt('أدخل وصف اللحظة:') || 'لحظة غالية';
+  const date = prompt('التاريخ (مثال: FEB 2026):', '2026') || '2026';
+  try {
+    const url = await window.uploadFileToStorage(f);
+    D.memories.push({id: Date.now(), caption: cap, date, emoji: mediaType==='video'?'🎥':'📸', img: url, type: mediaType});
+    syncStorage(); saveFirebaseData(); renderMemories(); renderDashMem();
+  } catch(e) { alert('فشل الرفع: ' + e.message); }
+  ev.target.value = '';
+};
+
+window.onPhotoUploaded = async function(ev) {
+  if(currentRole === 'visitor') return;
+  const f = ev.target.files[0]; if(!f || curIdx===null) return;
+  try {
+    const url = await window.uploadFileToStorage(f);
+    D.team[curIdx].photo = url;
+    alert('تم رفع الصورة ✓');
+  } catch(e) { alert('فشل الرفع: ' + e.message); }
+  ev.target.value = '';
+};
+
+window.onTimelinePhotoUploaded = async function(ev) {
+  if(currentRole === 'visitor') return;
+  const f = ev.target.files[0]; if(!f || currentTlIdx===null) return;
+  try {
+    const url = await window.uploadFileToStorage(f);
+    D.timeline[currentTlIdx].photo = url;
+    alert('تم رفع الصورة ✓');
+  } catch(e) { alert('فشل الرفع: ' + e.message); }
+  ev.target.value = '';
+};
+
+window.onPlanetLogoUploaded = async function(ev) {
+  if(currentRole === 'visitor' || currentRole === 'shahd') return;
+  const f = ev.target.files[0]; if(!f) return;
+  try {
+    const url = await window.uploadFileToStorage(f);
+    D.texts.planetLogo = url;
+    syncStorage(); saveFirebaseData(); renderAllStaticTexts();
+  } catch(e) { alert('فشل الرفع: ' + e.message); }
+};
+
+window.onGoodbyeFrameUploaded = async function(ev) {
+  if(currentRole === 'visitor' || currentRole === 'shahd') return;
+  const f = ev.target.files[0]; if(!f) return;
+  try {
+    const url = await window.uploadFileToStorage(f);
+    D.texts.goodbyeFrame = url;
+    syncStorage(); saveFirebaseData(); renderAllStaticTexts();
+  } catch(e) { alert('فشل الرفع: ' + e.message); }
+};
 
 </script>
 
