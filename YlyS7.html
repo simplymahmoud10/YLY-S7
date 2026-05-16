@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YLY Kafr Elshikh · Season 2025–2026 · Farewell</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Orbitron:wght@400;600;700;900&family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-deep:#01040d;--bg-navy:#050e24;--bg-blue:#071645;
+  --gold:#c9a84c;--gold-light:#e8c96a;
+  --gold-glow:rgba(201,168,76,0.15);--gold-glow2:rgba(232,201,106,0.1);
+  --white:#f0f4ff;--white-dim:rgba(240,244,255,0.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg-deep);color:var(--white);font-family:'Poppins',sans-serif;overflow-x:hidden;cursor:none;user-select:none;}
+
+/* SMART SOFT CURSOR */
+.cursor{position:fixed;width:6px;height:6px;background:var(--gold-light);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition: width 0.2s, height 0.2s;}
+.cursor-ring{position:fixed;width:26px;height:26px;border:1px solid rgba(201,168,76,0.4);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:transform 0.08s ease-out;}
+body:active .cursor {width: 10px; height: 10px; background: var(--gold);}
+
+#stars-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;transition:all 0.5s;}
+nav.scrolled{background:rgba(1,4,13,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,0.15);padding:14px 60px;}
+.nav-logo{font-family:'Orbitron',sans-serif;font-size:18px;font-weight:700;color:var(--gold-light);letter-spacing:3px;text-shadow:0 0 15px var(--gold-glow);}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-family:'Poppins',sans-serif;font-size:11px;color:var(--white-dim);letter-spacing:2px;text-decoration:none;text-transform:uppercase;position:relative;transition:color 0.3s;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold-light);transition:width 0.3s;}
+.nav-links a:hover{color:var(--gold-light);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{font-family:'Orbitron',sans-serif;font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;padding:10px 22px;border:1px solid var(--gold);text-decoration:none;background:transparent;cursor:none;transition:all 0.3s;}
+.nav-cta:hover{background:rgba(201,168,76,0.08);box-shadow:0 0 30px var(--gold-glow);}
+section{position:relative;z-index:1;}
+
+/* HERO */
+#home{min-height:100vh;display:flex;align-items:center;padding:120px 60px 60px;overflow:hidden;}
+.hero-left{flex:1;max-width:600px;}
+.hero-tag{font-family:'Orbitron',sans-serif;font-size:10px;color:var(--gold);letter-spacing:6px;text-transform:uppercase;margin-bottom:30px;display:flex;align-items:center;gap:12px;animation:fadeUp 1s 0.2s both;}
+.hero-tag::before{content:'';width:30px;height:1px;background:var(--gold);}
+.hero-title{font-family:'Cinzel',sans-serif;font-size:clamp(38px,5vw,68px);font-weight:900;line-height:1.05;letter-spacing:2px;animation:fadeUp 1s 0.4s both;}
+.hero-title span{display:block;background:linear-gradient(135deg,#fff 0%,var(--gold-light) 50%,#fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-ar{font-family:'Cairo',sans-serif;font-size:22px;font-weight:300;color:var(--gold-light);margin:24px 0;direction:rtl;text-shadow:0 0 20px var(--gold-glow);animation:fadeUp 1s 0.6s both;}
+.hero-sub{font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:5px;color:var(--white-dim);margin-bottom:50px;animation:fadeUp 1s 0.8s both;}
+.hero-btn{display:inline-flex;align-items:center;gap:12px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:600;color:var(--bg-deep);background:var(--gold-light);padding:18px 44px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;border:none;cursor:none;position:relative;overflow:hidden;transition:all 0.3s;animation:fadeUp 1s 1s both;}
+.hero-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-light));background-size:200%;animation:shimmer 3s infinite;}
+.hero-btn span{position:relative;z-index:1;}
+.hero-btn:hover{transform:translateY(-3px);box-shadow:0 20px 60px var(--gold-glow);}
+.hero-right{flex:1;display:flex;justify-content:center;align-items:center;animation:fadeIn 2s 0.5s both;}
+.planet{width:300px;height:300px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#0d2254,#05102a,#01040d);box-shadow:0 0 40px rgba(20,60,180,0.25),inset 0 0 60px rgba(0,0,0,0.6);position:absolute;top:100px;left:100px;display:flex;align-items:center;justify-content:center;transition: transform 0.3s;}
+.planet:hover{transform: scale(1.03);}
+.planet-logo{width:180px;height:180px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(201,168,76,0.6));border-radius: 50%;}
+.orbit-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,0.12);animation:spin linear infinite;}
+.orbit-ring:nth-child(1){width:550px;height:550px;top:-25px;left:-25px;animation-duration:40s;}
+.orbit-ring:nth-child(2){width:620px;height:620px;top:-60px;left:-60px;animation-duration:70s;animation-direction:reverse;}
+.satellite{position:absolute;width:8px;height:8px;background:var(--gold-light);border-radius:50%;box-shadow:0 0 15px var(--gold-light),0 0 30px var(--gold-glow);}
+
+/* SECTION HEADER */
+.section-header{text-align:center;margin-bottom:60px;}
+.section-tag{font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:16px;}
+.section-tag::before,.section-tag::after{content:'';flex:1;max-width:60px;height:1px;}
+.section-tag::before{background:linear-gradient(90deg,transparent,var(--gold));}
+.section-tag::after{background:linear-gradient(90deg,var(--gold),transparent);}
+.section-title{font-family:'Cinzel',sans-serif;font-size:clamp(32px,4vw,56px);font-weight:700;line-height:1.1;letter-spacing:3px;background:linear-gradient(135deg,#fff,var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.section-ar{font-family:'Cairo',sans-serif;font-size:16px;font-weight:300;color:var(--white-dim);margin-top:16px;direction:rtl;line-height:1.8;}
+
+/* TIMELINE & NEW HORIZONTAL TEAM TRACK */
+#timeline, #people{padding:120px 60px;overflow:hidden;}
+.timeline-track, .team-horizontal-track{position:relative;display:flex;gap:0;overflow-x:auto;padding:60px 20px;scrollbar-width:none;scroll-behavior:smooth;}
+.timeline-track::-webkit-scrollbar, .team-horizontal-track::-webkit-scrollbar{display:none;}
+.timeline-line, .team-horizontal-line{position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold),transparent);transform:translateY(-50%);z-index:0;}
+
+.timeline-card{flex:0 0 280px;margin:0 20px;position:relative;z-index:1;background:rgba(5,14,36,0.9);border:1px solid rgba(201,168,76,0.2);border-radius:4px;overflow:hidden;transition:all 0.4s;cursor:none;}
+.timeline-card:hover{transform:translateY(-12px);border-color:var(--gold);box-shadow:0 30px 60px rgba(0,0,0,0.5),0 0 30px var(--gold-glow);}
+.timeline-img-ph{width:100%;height:160px;background:linear-gradient(135deg,#071645,#050e24);display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:48px;opacity:0.9;overflow:hidden;}
+.timeline-img-ph img{width:100%;height:100%;object-fit:cover;}
+.timeline-body{padding:24px;}
+.timeline-date{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:3px;color:var(--gold);margin-bottom:10px;}
+.timeline-en{font-family:'Cinzel',sans-serif;font-size:16px;font-weight:600;color:var(--white);margin-bottom:8px;}
+.timeline-ar{font-family:'Cairo',sans-serif;font-size:13px;font-weight:300;color:var(--white-dim);direction:rtl;line-height:1.6;}
+.timeline-node, .team-horizontal-node{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:16px;height:16px;background:var(--gold);border-radius:50%;box-shadow:0 0 20px var(--gold-glow);}
+
+.slider-arrows{display:flex;justify-content:center;gap:20px;margin-top:24px;}
+.slider-arrow{width:48px;height:48px;border:1px solid rgba(201,168,76,0.3);border-radius:50%;background:rgba(5,14,36,0.9);color:var(--gold);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s;flex-shrink:0;user-select:none;z-index:10;}
+.slider-arrow:hover{background:rgba(201,168,76,0.1);border-color:var(--gold);box-shadow:0 0 20px var(--gold-glow);}
+
+/* NEW HORIZONTAL TEAM CARD */
+.person-card{flex:0 0 280px;margin:0 20px;background:rgba(5,14,36,0.9);border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:36px 24px;text-align:center;position:relative;z-index:1;transition:all 0.4s;cursor:none;}
+.person-card:hover{transform:translateY(-12px);border-color:var(--gold);box-shadow:0 30px 60px rgba(0,0,0,0.5),0 0 30px var(--gold-glow);}
+.person-avatar{width:100px;height:100px;border-radius:50%;border:2px solid rgba(201,168,76,0.4);background:linear-gradient(135deg,#071645,#050e24);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-family:'Cairo',sans-serif;font-size:26px;font-weight:700;color:var(--gold-light);position:relative;overflow:hidden;}
+.person-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.person-role{font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
+.person-name{font-family:'Cairo',sans-serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:16px;direction:rtl;}
+
+/* THE ANTIQUE LETTER ICON BUTTON */
+.letter-trigger-btn{background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold-light);font-size:18px;padding:8px 16px;border-radius:4px;cursor:none;transition:all 0.3s;display:inline-flex;align-items:center;justify-content:center;}
+.letter-trigger-btn:hover{background:rgba(201,168,76,0.12);border-color:var(--gold);box-shadow:0 0 15px var(--gold-glow);}
+
+/* CINEMATIC TYPEWRITER OVERLAY */
+.type-overlay{position:fixed;inset:0;background:rgba(1,4,13,0.96);backdrop-filter:blur(25px);z-index:30000;display:none;align-items:center;justify-content:center;padding:30px;}
+.type-overlay.active{display:flex;}
+.type-box{background:rgba(5,14,36,0.85);border:1px solid rgba(201,168,76,0.35);padding:50px 40px;border-radius:8px;width:600px;max-width:100%;box-shadow:0 0 60px rgba(0,0,0,0.8);position:relative;}
+.type-author{font-family:'Cairo',sans-serif;font-size:20px;font-weight:700;color:var(--gold-light);margin-bottom:6px;text-align:center;}
+.type-role{font-family:'Orbitron',sans-serif;font-size:9px;color:var(--gold);letter-spacing:3px;text-align:center;margin-bottom:24px;text-transform:uppercase;}
+.type-content{font-family:'Cairo',sans-serif;font-size:16px;color:#fff;direction:rtl;line-height:2.2;min-height:120px;white-space:pre-wrap;}
+.type-cursor{display:inline-block;width:2px;height:18px;background:var(--gold-light);margin-right:4px;animation:blink 0.8s infinite;vertical-align:middle;}
+
+/* CINEMATIC MEMORIES (SCATTERED WALL STYLE) */
+#moments{padding:120px 60px;background: radial-gradient(circle at center, rgba(5,14,36,0.3) 0%, transparent 70%);}
+.memories-container{max-width:1200px;margin:60px auto 0;position:relative;min-height:650px;}
+.memories-wall{position:relative;width:100%;height:100%;min-height:550px;}
+.memory-card{position:absolute;background:rgba(10,25,60,0.25);backdrop-filter:blur(10px);border:1px solid rgba(201,168,76,0.18);padding:12px 12px 24px 12px;box-shadow:0 15px 35px rgba(0,0,0,0.4);transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);cursor:none;width:240px;transform-origin:center;}
+.memory-card:hover{transform:scale(1.15) rotate(0deg) !important;z-index:50 !important;border-color:var(--gold);box-shadow:0 30px 60px rgba(0,0,0,0.7), 0 0 30px var(--gold-glow);}
+.memory-media-box{width:100%;height:180px;background:linear-gradient(135deg,#050e24,#071645);position:relative;overflow:hidden;border-radius:2px;}
+.memory-img-el, .memory-video-el{width:100%;height:100%;object-fit:cover;display:block;}
+.memory-tape{position:absolute;top:-15px;left:50%;transform:translateX(-50%);width:70px;height:20px;background:rgba(201,168,76,0.15);backdrop-filter:blur(2px);border-left:1px dashed rgba(255,255,255,0.08);border-right:1px dashed rgba(255,255,255,0.08);}
+.memory-caption{padding-top:14px;font-family:'Cairo',sans-serif;font-size:12px;color:var(--white-dim);direction:rtl;text-align:center;}
+.memory-date{font-family:'Orbitron',sans-serif;font-size:8px;color:var(--gold);letter-spacing:1px;margin-bottom:4px;}
+.memory-rec{position:absolute;top:10px;right:10px;font-family:'Orbitron',sans-serif;font-size:8px;color:#ff4444;letter-spacing:1px;display:flex;align-items:center;gap:4px;background:rgba(0,0,0,0.5);padding:2px 6px;border-radius:4px;z-index:2;}
+.rec-dot{width:6px;height:6px;background:#ff4444;border-radius:50%;animation:blink 1s infinite;}
+.video-badge{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.3);color:#fff;font-size:24px;}
+
+/* WATCH MEMORIES CONTROL CARD */
+.watch-memories-holder{display:flex;justify-content:center;margin-top:40px;}
+.watch-mem-btn{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;color:var(--gold-light);background:rgba(5,14,36,0.8);border:1px solid var(--gold);padding:16px 40px;letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;gap:14px;box-shadow:0 0 30px var(--gold-glow);transition:all 0.3s;cursor:none;}
+.watch-mem-btn:hover{background:var(--gold-light);color:var(--bg-deep);transform:scale(1.05);box-shadow:0 0 40px var(--gold-light);}
+.watch-mem-btn span{animation:pulse 2s infinite;width:10px;height:10px;background:var(--gold);border-radius:50%;display:inline-block;}
+
+/* LIGHTBOX MEDIA VIEWER */
+.lightbox-overlay{position:fixed;inset:0;background:rgba(1,4,13,0.95);backdrop-filter:blur(15px);z-index:11000;display:none;align-items:center;justify-content:center;opacity:0;transition:opacity 0.4s;}
+.lightbox-overlay.active{display:flex;opacity:1;}
+.lightbox-box{max-width:85vw;max-height:80vh;position:relative;display:flex;flex-direction:column;align-items:center;}
+.lightbox-media-container{width:100%;max-height:70vh;border:1px solid rgba(201,168,76,0.3);box-shadow:0 0 100px rgba(0,0,0,0.9);background:#000;}
+.lightbox-media-container img, .lightbox-media-container video{max-width:100%;max-height:70vh;display:block;margin:0 auto;}
+.lightbox-caption{margin-top:20px;font-family:'Cairo',sans-serif;font-size:16px;color:#fff;text-align:center;direction:rtl;}
+.lightbox-close{position:fixed;top:30px;right:40px;background:none;border:none;color:#fff;font-size:35px;cursor:pointer;transition:color 0.3s;z-index:11002;}
+.lightbox-close:hover{color:var(--gold-light);}
+.lightbox-arrow{position:fixed;top:50%;transform:translateY(-50%);background:rgba(5,14,36,0.6);border:1px solid rgba(201,168,76,0.3);color:var(--gold);width:60px;height:60px;border-radius:50%;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;z-index:11001;user-select:none;}
+.lightbox-arrow:hover{background:var(--gold);color:var(--bg-deep);}
+.lightbox-arrow.prev{left:40px;}
+.lightbox-arrow.next{right:40px;}
+
+/* GOODBYE */
+#goodbye{min-height:100vh;display:flex;align-items:center;padding:120px 60px;overflow:hidden;position:relative;}
+.goodbye-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(201,168,76,0.05) 0%,transparent 70%);pointer-events:none;}
+.goodbye-left{flex:1;max-width:550px;}
+.goodbye-title{font-family:'Cinzel',sans-serif;font-size:clamp(42px,5.5vw,80px);font-weight:900;line-height:1;letter-spacing:2px;background:linear-gradient(135deg,#fff 0%,var(--gold-light) 60%,#fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.goodbye-ar{font-family:'Cairo',sans-serif;font-size:20px;font-weight:300;color:var(--gold-light);margin:30px 0;direction:rtl;line-height:1.8;text-shadow:0 0 20px var(--gold-glow);}
+.goodbye-btn{display:inline-flex;align-items:center;gap:12px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:600;color:var(--bg-deep);background:var(--gold-light);padding:18px 44px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:none;transition:all 0.3s;}
+.goodbye-btn:hover{transform:translateY(-3px);box-shadow:0 20px 60px var(--gold-glow);}
+.goodbye-right{flex:1;display:flex;justify-content:center;align-items:center;}
+.team-photo-frame{width:480px;height:380px;background:linear-gradient(135deg,#071645,#050e24);border:1px solid rgba(201,168,76,0.3);border-radius:4px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 50px rgba(0,0,0,0.5);}
+.team-photo-frame img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.team-photo-frame::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(201,168,76,0.05),transparent);z-index:2;}
+.team-photo-ph{text-align:center;color:var(--gold-light);opacity:0.4;font-size:50px;font-family:'Cairo',sans-serif;z-index:1;}
+.team-photo-next{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:'Poppins',sans-serif;font-size:13px;color:var(--gold-light);letter-spacing:1px;font-style:italic;text-shadow:0 0 20px var(--gold-glow);white-space:nowrap;z-index:3;}
+
+/* FOOTER */
+footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);padding:60px;text-align:center;position:relative;z-index:1;}
+.footer-logo{font-family:'Orbitron',sans-serif;font-size:20px;font-weight:700;color:var(--gold-light);letter-spacing:4px;margin-bottom:28px;text-shadow:0 0 20px var(--gold-glow);}
+.footer-nav{display:flex;gap:36px;justify-content:center;margin-bottom:28px;list-style:none;flex-wrap:wrap;}
+.footer-nav a{font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:2px;color:var(--white-dim);text-decoration:none;text-transform:uppercase;transition:color 0.3s;}
+.footer-nav a:hover{color:var(--gold-light);}
+
+/* MINIMALIST CIRCULAR ICON BUTTONS FOR FB & WA */
+.social-row{display:flex;justify-content:center;gap:24px;margin-bottom:28px;}
+.social-btn{width:46px;height:46px;display:flex;align-items:center;justify-content:center;text-decoration:none;border:1px solid rgba(201,168,76,0.3);border-radius:50%;transition:all 0.3s;position:relative;}
+.social-btn:hover{border-color:var(--gold);background:rgba(201,168,76,0.08);box-shadow:0 0 20px var(--gold-glow);transform:translateY(-2px);}
+.social-btn.fb::before { content: 'f'; font-family: 'Cinzel', serif; font-weight: bold; font-size: 20px; color: var(--gold-light); }
+.social-btn.wa::before { content: 'Calling Code'; content: '✉'; font-size: 18px; color: var(--gold-light); }
+.social-btn.wa::before { content: 'W'; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px; color: var(--gold-light); }
+
+.footer-made{font-family:'Cinzel',sans-serif;font-size:13px;color:var(--white-dim);margin-top:20px;letter-spacing:2px;}
+.made-name{color:var(--gold-light);cursor:none;text-shadow:0 0 20px var(--gold-glow);transition:text-shadow 0.3s;display:inline-block;user-select:none;}
+.made-name:hover{text-shadow:0 0 40px var(--gold-glow);}
+.footer-copy{font-family:'Poppins',sans-serif;font-size:10px;color:rgba(240,244,255,0.25);margin-top:16px;letter-spacing:2px;}
+
+/* ADMIN LOGIN */
+.admin-overlay{position:fixed;inset:0;z-index:10000;background:rgba(1,4,13,0.97);display:none;align-items:center;justify-content:center;backdrop-filter:blur(20px);}
+.admin-overlay.active{display:flex;}
+.admin-panel{background:rgba(5,14,36,0.9);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:56px 46px;width:420px;text-align:center;position:relative;box-shadow:0 0 80px rgba(201,168,76,0.1);}
+.admin-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.admin-title{font-family:'Orbitron',sans-serif;font-size:14px;font-weight:700;color:var(--gold-light);letter-spacing:4px;margin-bottom:8px;}
+.admin-sub{font-family:'Poppins',sans-serif;font-size:11px;color:var(--white-dim);margin-bottom:34px;letter-spacing:1px;}
+.admin-input{width:100%;background:rgba(1,4,13,0.8);border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:13px 18px;color:var(--white);font-family:'Poppins',sans-serif;font-size:13px;margin-bottom:13px;outline:none;transition:border-color 0.3s;}
+.admin-input:focus{border-color:var(--gold);}
+.admin-btn{width:100%;background:var(--gold-light);color:var(--bg-deep);border:none;padding:14px;cursor:pointer;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-top:8px;transition:all 0.3s;border-radius:2px;}
+.admin-btn:hover{background:var(--gold);box-shadow:0 0 30px var(--gold-glow);}
+.admin-close{position:absolute;top:16px;right:18px;color:var(--white-dim);font-size:20px;cursor:pointer;background:none;border:none;transition:color 0.3s;}
+.admin-close:hover{color:var(--gold-light);}
+.admin-error{color:#ff6b6b;font-size:11px;margin-top:8px;font-family:'Poppins',sans-serif;}
+
+/* DASHBOARD */
+.dash-overlay{position:fixed;inset:0;z-index:10001;background:rgba(1,4,13,0.99);display:none;overflow-y:auto;}
+.dash-overlay.active{display:block;}
+.dash-nav{background:rgba(5,14,36,0.97);border-bottom:1px solid rgba(201,168,76,0.15);padding:15px 28px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:10px;}
+.dash-logo{font-family:'Orbitron',sans-serif;font-size:13px;color:var(--gold-light);letter-spacing:3px;}
+.dash-tabs{display:flex;gap:6px;flex-wrap:wrap;}
+.dash-tab{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:2px;color:var(--white-dim);border:1px solid rgba(201,168,76,0.15);padding:8px 13px;cursor:pointer;background:transparent;transition:all 0.3s;text-transform:uppercase;}
+.dash-tab.active,.dash-tab:hover{color:var(--gold-light);border-color:var(--gold);background:rgba(201,168,76,0.05);}
+.dash-close{font-family:'Orbitron',sans-serif;font-size:9px;color:var(--white-dim);letter-spacing:2px;cursor:pointer;background:none;padding:8px 14px;border:1px solid rgba(255,100,100,0.3);transition:all 0.3s;text-transform:uppercase;}
+.dash-close:hover{color:#ff6b6b;border-color:#ff6b6b;}
+.dash-body{padding:32px;}
+.dash-panel{display:none;}
+.dash-panel.active{display:block;}
+.dash-sec-title{font-family:'Cinzel',sans-serif;font-size:22px;font-weight:600;color:var(--gold-light);margin-bottom:24px;letter-spacing:2px;}
+.dash-field{margin-bottom:16px;}
+.dash-label{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:2px;color:var(--gold);margin-bottom:7px;display:block;text-transform:uppercase;}
+.dash-input,.dash-textarea{width:100%;background:rgba(5,14,36,0.8);border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:11px 14px;color:var(--white);font-family:'Poppins',sans-serif;font-size:13px;outline:none;transition:border-color 0.3s;}
+.dash-textarea{min-height:90px;resize:vertical;}
+.dash-input:focus,.dash-textarea:focus{border-color:var(--gold);}
+.dash-save{background:var(--gold-light);color:var(--bg-deep);border:none;padding:11px 26px;cursor:pointer;font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:all 0.3s;margin-top:8px;}
+.dash-save:hover{background:var(--gold);box-shadow:0 0 20px var(--gold-glow);}
+.dash-add-btn{background:rgba(201,168,76,0.08);color:var(--gold);border:1px solid rgba(201,168,76,0.3);padding:9px 20px;cursor:pointer;font-family:'Orbitron',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:all 0.3s;margin-bottom:16px;}
+.dash-add-btn:hover{background:rgba(201,168,76,0.15);}
+.card-list{display:grid;gap:12px;}
+.d-card{background:rgba(5,14,36,0.5);border:1px solid rgba(201,168,76,0.1);border-radius:4px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;}
+.d-card-info{flex:1;}
+.d-card-name{font-family:'Cairo',sans-serif;font-size:15px;font-weight:600;color:var(--white);direction:rtl;}
+.d-card-sub{font-family:'Orbitron',sans-serif;font-size:9px;color:var(--gold);margin-top:4px;letter-spacing:1px;}
+.d-card-actions{display:flex;gap:7px;flex-wrap:wrap;}
+.d-edit,.d-del,.d-photo{font-family:'Orbitron',sans-serif;font-size:8px;letter-spacing:1px;padding:6px 11px;border:1px solid;cursor:pointer;background:transparent;text-transform:uppercase;transition:all 0.3s;}
+.d-edit{color:var(--gold);border-color:rgba(201,168,76,0.3);}
+.d-edit:hover{background:rgba(201,168,76,0.1);}
+.d-del{color:#ff6b6b;border-color:rgba(255,107,107,0.3);}
+.d-del:hover{background:rgba(255,107,107,0.1);}
+.d-avi{width:52px;height:52px;border-radius:50%;border:2px solid rgba(201,168,76,0.3);background:linear-gradient(135deg,#071645,#050e24);display:flex;align-items:center;justify-content:center;font-family:'Cairo',sans-serif;font-size:16px;color:var(--gold-light);overflow:hidden;flex-shrink:0;}
+.d-avi img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+.d-g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.drop-zone{border:2px dashed rgba(201,168,76,0.3);border-radius:6px;padding:28px;text-align:center;cursor:pointer;transition:all 0.3s;margin-bottom:14px;}
+.drop-zone:hover,.drop-zone.drag{border-color:var(--gold);background:rgba(201,168,76,0.04);}
+.drop-zone p{font-family:'Poppins',sans-serif;font-size:12px;color:var(--white-dim);margin-top:8px;}
+.hidden-file{display:none;}
+
+/* MODALS */
+.m-overlay{position:fixed;inset:0;z-index:20000;background:rgba(1,4,13,0.97);backdrop-filter:blur(20px);display:none;align-items:center;justify-content:center;}
+.m-overlay.active{display:flex;}
+.m-box{background:rgba(5,14,36,0.95);border:1px solid rgba(201,168,76,0.3);padding:40px;border-radius:6px;width:500px;max-width:90vw;position:relative;box-shadow:0 0 50px rgba(0,0,0,0.8);}
+.m-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--white-dim);font-size:18px;cursor:pointer;transition:color 0.3s;}
+.m-close:hover{color:var(--gold-light);}
+
+/* SCROLL REVEAL ELEMENT ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:all 0.8s cubic-bezier(0.25,0.46,0.45,0.94);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* KEYFRAMES */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes shimmer{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes orbit{from{transform:rotate(0deg) translateX(275px) rotate(0deg);}to{transform:rotate(360deg) translateX(275px) rotate(-360deg);}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-15px) rotate(5deg);}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,168,76,0.7);}70%{box-shadow:0 0 0 15px rgba(201,168,76,0);}100%{box-shadow:0 0 0 0 rgba(201,168,76,0);}}
+
+@media(max-width:900px){
+  nav, nav.scrolled{padding:15px 24px;}
+  .nav-links{display:none;}
+  #home, #timeline, #people, #moments, #goodbye, footer{padding:80px 24px;}
+  .hero-right{display:none;}
+  .goodbye-right{margin-top:40px;width:100%;display:flex;justify-content:center;}
+  .team-photo-frame{width:100%;max-width:440px;height:300px;}
+  .memory-card{position:relative !important;top:0 !important;left:0 !important;transform:none !important;width:100% !important;margin-bottom:20px;}
+  .memories-wall{display:flex;flex-direction:column;gap:0;}
+  .d-g2{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+
+<body onclick="countClick()">
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<canvas id="stars-canvas"></canvas>
+
+<nav id="navbar">
+  <div class="nav-logo" id="site-logo-text">YLY KAFR ELSHIKH</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#people">Family</a></li>
+    <li><a href="#moments">Moments</a></li>
+    <li><a href="#goodbye">Farewell</a></li>
+  </ul>
+  <a href="#" class="nav-cta" onclick="toggleBackgroundMusic();return false;">🎵 BACKGROUND MUSIC</a>
+</nav>
+
+<section id="home">
+  <div class="hero-left">
+    <div class="hero-tag" id="hero-tag-text">YLY KAFR ELSHIKH · SEASON 2025–2026</div>
+    <h1 class="hero-title" id="hero-main-title">
+      <span>WE DIDN'T</span>
+      <span>JUST PARTICIPATE,</span>
+      <span>WE LIVED IT.</span>
+    </h1>
+    <div class="hero-ar" id="hero-ar-text">مش مجرد مبادرة… دي حياة</div>
+    <div class="hero-sub" id="hero-sub-text">YLY KAFR ELSHIKH · SEASON 2025–2026</div>
+    <a href="#timeline" class="hero-btn" id="hero-cta-btn"><span>START THE JOURNEY →</span></a>
+  </div>
+  <div class="hero-right">
+    <div style="position:relative;width:500px;height:500px;">
+      <div class="orbit-ring"></div>
+      <div class="orbit-ring"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+        <div class="planet" onclick="triggerPlanetUpload()">
+          <img src="/mnt/user-data/uploads/508744209_122132104004718808_4096096571045931910_n.jpg" class="planet-logo" id="planet-img-logo" alt="YLY">
+        </div>
+        <input type="file" id="planet-file-input" class="hidden-file" accept="image/*" onchange="onPlanetLogoUploaded(event)">
+      </div>
+      <div style="position:absolute;top:50%;left:50%;animation:orbit 8s linear infinite;transform-origin:0 0;"><div class="satellite"></div></div>
+      <div style="position:absolute;top:50%;left:50%;animation:orbit 14s linear infinite reverse;animation-delay:-5s;transform-origin:0 0;"><div class="satellite" style="background:#fff;box-shadow:0 0 15px #fff;"></div></div>
+      <div style="position:absolute;bottom:30px;right:50px;animation:float 4s ease-in-out infinite;font-size:30px;">🚀</div>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="section-header reveal">
+    <div class="section-tag" id="tl-tag-text">OUR JOURNEY</div>
+    <h2 class="section-title" id="tl-title-text">TIMELINE</h2>
+    <div class="section-ar" id="tl-ar-text">كل خطوة كانت بداية حلم،<br>وكل لحظة كانت جزء من الحكاية.</div>
+  </div>
+  <div class="reveal">
+    <div class="timeline-track" id="timeline-track"><div class="timeline-line"></div></div>
+    <div class="slider-arrows">
+      <button class="slider-arrow" onclick="document.getElementById('timeline-track').scrollLeft-=300">←</button>
+      <button class="slider-arrow" onclick="document.getElementById('timeline-track').scrollLeft+=300">→</button>
+    </div>
+  </div>
+</section>
+
+<section id="people">
+  <div class="section-header reveal">
+    <div class="section-tag" id="team-tag-text">OUR FAMILY</div>
+    <h2 class="section-title" id="team-title-text">THE TEAM</h2>
+    <div class="section-ar" id="team-ar-text">مافيش نجاح من غير ناس بيؤمنوا بنفس الحلم.</div>
+  </div>
+  <div class="reveal">
+    <div class="team-horizontal-track" id="team-track-container">
+      <div class="team-horizontal-line"></div>
+    </div>
+    <div class="slider-arrows">
+      <button class="slider-arrow" onclick="document.getElementById('team-track-container').scrollLeft-=300">←</button>
+      <button class="slider-arrow" onclick="document.getElementById('team-track-container').scrollLeft+=300">→</button>
+    </div>
+  </div>
+</section>
+
+<section id="moments">
+  <div class="section-header reveal">
+    <div class="section-tag" id="moments-tag-text">UNFORGETTABLE</div>
+    <h2 class="section-title" id="moments-title-text">THE MOMENTS</h2>
+    <div class="section-ar" id="moments-ar-text">ضحكة، تعب، فرحة، دموع…<br>كل لحظة كانت تستاهل.</div>
+  </div>
+  <div class="memories-container reveal">
+    <div class="memories-wall" id="memories-wall"></div>
+  </div>
+  <div class="watch-memories-holder reveal">
+    <button class="watch-mem-btn" onclick="openLightbox(0)"><span></span> Watch All Memories</button>
+  </div>
+</section>
+
+<section id="goodbye">
+  <div class="goodbye-glow"></div>
+  <div class="goodbye-left">
+    <h2 class="goodbye-title" id="goodbye-main-title">GOODBYES<br>ARE NOT<br>the end.</h2>
+    <div class="goodbye-ar" id="goodbye-ar-text">سيبوناش خلاص…<br>له الحكاية مستمرة.</div>
+    <button class="goodbye-btn" id="goodbye-cta-btn" onclick="document.getElementById('goodbye-modal').classList.add('active')">💛 THANK YOU, YLY</button>
+  </div>
+  <div class="goodbye-right">
+    <div class="team-photo-frame" onclick="triggerGoodbyeFrameUpload()">
+      <div class="team-photo-ph" id="frame-ph-el">📸</div>
+      <img src="" id="goodbye-frame-img" style="display:none;" alt="Team Photo">
+      <div class="team-photo-next">Click to upload season memory photo ✨</div>
+    </div>
+    <input type="file" id="goodbye-frame-input" class="hidden-file" accept="image/*" onchange="onGoodbyeFrameUploaded(event)">
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo" id="footer-logo-text">YLY KAFR ELSHIKH</div>
+  <ul class="footer-nav">
+    <li><a href="#home">Top</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#people">Family</a></li>
+    <li><a href="#moments">Moments</a></li>
+  </ul>
+  <div class="social-row">
+    <a href="#" class="social-btn fb" id="fb-link-el" target="_blank"></a>
+    <a href="#" class="social-btn wa" id="wa-link-el" target="_blank"></a>
+  </div>
+  <div class="footer-made">Made with Love for <span class="made-name">YLY Kafr Elshikh</span></div>
+  <div class="footer-copy" id="footer-copy">© 2025–2026 YLY KAFR ELSHIKH. ALL RIGHTS RESERVED. · محمود فؤاد</div>
+</footer>
+
+<div class="m-overlay" id="goodbye-modal">
+  <div class="m-box" style="text-align:center;">
+    <button class="m-close" onclick="document.getElementById('goodbye-modal').classList.remove('active')">✕</button>
+    <div style="font-size:54px;margin-bottom:16px;">💛</div>
+    <div style="font-family:'Cinzel',sans-serif;font-size:22px;color:var(--gold-light);margin-bottom:16px;letter-spacing:2px;">THANK YOU, YLY</div>
+    <div style="font-family:'Cairo',sans-serif;font-size:16px;color:var(--white-dim);direction:rtl;line-height:2.2;" id="modal-goodbye-body">شكراً لكل واحد فيكم على كل لحظة، كل مجهود، وكل لحظة حبتوا فيها YLY.<br>الموسم ده مش بس موسم… ده ذكرى هتفضل في قلوبنا للأبد.<br><br><span style="color:var(--gold-light);">See you in the next chapter ♡</span></div>
+  </div>
+</div>
+
+<div class="lightbox-overlay" id="lightbox-viewer" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(force=true)">✕</button>
+  <button class="lightbox-arrow prev" onclick="navigateLightbox(-1); event.stopPropagation();">←</button>
+  <div class="lightbox-box">
+    <div class="lightbox-media-container" id="lightbox-content"></div>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+  <button class="lightbox-arrow next" onclick="navigateLightbox(1); event.stopPropagation();">→</button>
+</div>
+
+<div class="type-overlay" id="typewriter-modal" onclick="closeTypewriterModal(event)">
+  <div class="type-box">
+    <button class="m-close" onclick="closeTypewriterModal(null, true)">✕</button>
+    <div class="type-author" id="type-author-el">Name</div>
+    <div class="type-role" id="type-role-el">ROLE</div>
+    <div class="type-content"><span id="type-text-el"></span><span class="type-cursor"></span></div>
+  </div>
+</div>
+
+<div class="admin-overlay" id="admin-overlay">
+  <div class="admin-panel">
+    <button class="admin-close" onclick="document.getElementById('admin-overlay').classList.remove('active')">✕</button>
+    <div style="font-size:28px;margin-bottom:16px;">🔐</div>
+    <div class="admin-title">ADMIN ACCESS</div>
+    <div class="admin-sub">AUTHORIZED PERSONNEL ONLY</div>
+    <input class="admin-input" type="email" id="admin-email" placeholder="Email">
+    <input class="admin-input" type="password" id="admin-pass" placeholder="Password">
+    <div class="admin-error" id="admin-error"></div>
+    <button class="admin-btn" onclick="doLogin()">ACCESS DASHBOARD</button>
+  </div>
+</div>
+
+<div class="dash-overlay" id="dashboard">
+  <div class="dash-nav">
+    <div class="dash-logo" id="dash-role-indicator">⚙ ADMIN · YLY 2025–2026</div>
+    <div class="dash-tabs" id="dash-tabs-holder">
+      <button class="dash-tab active" id="tab-hero" onclick="switchTab(this,'p-hero')">TEXTS & HERO</button>
+      <button class="dash-tab" id="tab-timeline" onclick="switchTab(this,'p-timeline')">TIMELINE</button>
+      <button class="dash-tab" id="tab-team" onclick="switchTab(this,'p-team')">TEAM MEMBERS</button>
+      <button class="dash-tab" id="tab-moments" onclick="switchTab(this,'p-moments')">MEMORIES WALL</button>
+      <button class="dash-tab" id="tab-settings" onclick="switchTab(this,'p-settings')">SETTINGS & LOGOS</button>
+    </div>
+    <button class="dash-close" onclick="document.getElementById('dashboard').classList.remove('active')">CLOSE PANEL</button>
+  </div>
+  <div class="dash-body">
+    
+    <div class="dash-panel active" id="p-hero">
+      <div class="dash-sec-title">DYNAMIC SITE TEXTS & HEADER</div>
+      <div class="d-g2">
+        <div>
+          <div class="dash-field"><label class="dash-label">Site Title Logo</label><input class="dash-input" id="d-site-logo" value="YLY KAFR ELSHIKH"></div>
+          <div class="dash-field"><label class="dash-label">Hero Tag English</label><input class="dash-input" id="d-tag" value="YLY KAFR ELSHIKH · SEASON 2025–2026"></div>
+          <div class="dash-field"><label class="dash-label">Hero Title Lines (Use enter to split)</label><textarea class="dash-textarea" id="d-title">WE DIDN'T&#10;JUST PARTICIPATE,&#10;WE LIVED IT.</textarea></div>
+          <div class="dash-field"><label class="dash-label">Hero Arabic Title</label><input class="dash-input" id="d-ar" value="مش مجرد مبادرة… دي حياة"></div>
+          <div class="dash-field"><label class="dash-label">Hero Subtitle</label><input class="dash-input" id="d-sub" value="YLY KAFR ELSHIKH · SEASON 2025–2026"></div>
+          <div class="dash-field"><label class="dash-label">Hero Journey Button</label><input class="dash-input" id="d-cta" value="START THE JOURNEY →"></div>
+        </div>
+        <div>
+          <div class="dash-field"><label class="dash-label">Timeline Tag</label><input class="dash-input" id="d-tl-tag" value="OUR JOURNEY"></div>
+          <div class="dash-field"><label class="dash-label">Timeline Title</label><input class="dash-input" id="d-tl-title" value="TIMELINE"></div>
+          <div class="dash-field"><label class="dash-label">Timeline Arabic Desc</label><textarea class="dash-textarea" id="d-tl-ar">كل خطوة كانت بداية حلم،&#10;وكل لحظة كانت جزء من الحكاية.</textarea></div>
+          <div class="dash-field"><label class="dash-label">Team Section Tag</label><input class="dash-input" id="d-team-tag" value="OUR FAMILY"></div>
+          <div class="dash-field"><label class="dash-label">Team Section Title</label><input class="dash-input" id="d-team-title" value="THE TEAM"></div>
+          <div class="dash-field"><label class="dash-label">Team Section Arabic Desc</label><input class="dash-input" id="d-team-ar" value="مافيش نجاح من غير ناس بيؤمنوا بنفس الحلم."></div>
+        </div>
+      </div>
+      <button class="dash-save btn-text-lock" onclick="saveTexts()">SAVE PAGE TEXTS</button>
+    </div>
+
+    <div class="dash-panel" id="p-timeline">
+      <div class="dash-sec-title">TIMELINE CARDS HUB</div>
+      <button class="dash-add-btn btn-text-lock" onclick="addTimelineNode()">+ ADD NEW TIMELINE NODE</button>
+      <div class="card-list" id="dash-timeline-list"></div>
+      <input type="file" accept="image/*" class="hidden-file image-lock-field" id="timeline-photo-input" onchange="onTimelinePhotoUploaded(event)">
+    </div>
+
+    <div class="dash-panel" id="p-team">
+      <div class="dash-sec-title">TEAM ROSTER HUB</div>
+      <button class="dash-add-btn btn-text-lock" onclick="addTeamMember()">+ ADD NEW MEMBER</button>
+      <div class="card-list" id="team-list"></div>
+      <input type="file" accept="image/*" class="hidden-file image-lock-field" id="photo-input" onchange="onPhotoUploaded(event)">
+    </div>
+
+    <div class="dash-panel" id="p-moments">
+      <div class="dash-sec-title">MEMORIES MANAGEMENT</div>
+      <div class="d-g2">
+        <div>
+          <div class="dash-field"><label class="dash-label">Moments Tag</label><input class="dash-input" id="d-moments-tag" value="UNFORGETTABLE"></div>
+          <div class="dash-field"><label class="dash-label">Moments Title</label><input class="dash-input" id="d-moments-title" value="THE MOMENTS"></div>
+        </div>
+        <div>
+          <div class="dash-field"><label class="dash-label">Moments Arabic Desc</label><input class="dash-input" id="d-moments-ar" value="ضحكة، تعب، فرحة، دموع… كل لحظة كانت تستاهل."></div>
+        </div>
+      </div>
+      <div class="drop-zone image-lock-field" id="mem-drop" onclick="document.getElementById('mem-input').click()">
+        <div style="font-size:30px;">🖼️ / 🎥</div>
+        <p>Click to upload a Memory Photo or Video</p>
+      </div>
+      <input type="file" accept="image/*,video/*" class="hidden-file image-lock-field" id="mem-input" onchange="onMemUploaded(event)">
+      <div class="card-list" id="mem-list"></div>
+    </div>
+
+    <div class="dash-panel" id="p-settings">
+      <div class="dash-sec-title">GENERAL SETTINGS, SOCIAL LINKS & SITE GRAPHICS</div>
+      <div class="d-g2">
+        <div>
+          <div class="dash-field"><label class="dash-label">Goodbye Section Title</label><textarea class="dash-textarea" id="d-goodbye-title">GOODBYES&#10;ARE NOT&#10;the end.</textarea></div>
+          <div class="dash-field"><label class="dash-label">Goodbye Arabic Subtitle</label><input class="dash-input" id="d-goodbye-ar" value="سيبوناش خلاص… لسه الحكاية مستمرة."></div>
+          <div class="dash-field"><label class="dash-label">Goodbye CTA Button</label><input class="dash-input" id="d-goodbye-cta" value="💛 THANK YOU, YLY"></div>
+          <div class="dash-field"><label class="dash-label">Goodbye Modal Message</label><textarea class="dash-textarea" id="d-modal-goodbye">شكراً لكل واحد فيكم على كل لحظة، كل مجهود، وكل لحظة حبتوا فيها YLY. الموسم ده مش بس موسم… ده ذكرى هتفضل في قلوبنا للأبد.</textarea></div>
+        </div>
+        <div>
+          <div class="dash-field"><label class="dash-label">Background Music URL (.mp3)</label><input class="dash-input" id="d-music" placeholder="https://...mp3"></div>
+          <div class="dash-field"><label class="dash-label">Facebook Link</label><input class="dash-input" id="d-fb" value="https://www.facebook.com/share/1HmoVVvR3n/"></div>
+          <div class="dash-field"><label class="dash-label">WhatsApp Link</label><input class="dash-input" id="d-wa" value="https://wa.me/201018187734"></div>
+          <div class="dash-field"><label class="dash-label">Footer Big Title</label><input class="dash-input" id="d-footer-title" value="YLY KAFR ELSHIKH"></div>
+          <div class="dash-field"><label class="dash-label">Copyright Text</label><input class="dash-input" id="d-copy" value="© 2025–2026 YLY KAFR ELSHIKH. ALL RIGHTS RESERVED. · محمود فؤاد"></div>
+          <div class="dash-field"><label class="dash-label">Theme Accent Color</label><input class="dash-input" type="color" id="d-color" value="#c9a84c"></div>
+        </div>
+      </div>
+      
+      <div style="margin-top:20px; padding:20px; border:1px solid rgba(201,168,76,0.2); background:rgba(1,4,13,0.4);" class="image-lock-field">
+        <div class="dash-label" style="margin-bottom:12px; color:var(--gold-light);">Site Static Media Graphics Control</div>
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+          <div>
+            <button class="dash-add-btn" onclick="triggerPlanetUpload()">Upload New Home Planet Logo</button>
+          </div>
+          <div>
+            <button class="dash-add-btn" onclick="triggerGoodbyeFrameUpload()">Upload New Farewell Group Frame</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="dash-save btn-text-lock" style="margin-top:20px;" onclick="saveSettings()">SAVE SYSTEM CONFIGS</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="m-overlay" id="team-edit-modal">
+  <div class="m-box">
+    <button class="m-close" onclick="closePhotoModal()">✕</button>
+    <div class="dash-sec-title">EDIT MEMBER PROFILES</div>
+    <div class="dash-field"><label class="dash-label">Full Name (Arabic)</label><input class="dash-input text-lock-input" id="edit-m-name"></div>
+    <div class="dash-field"><label class="dash-label">Role Label (English)</label><input class="dash-input text-lock-input" id="edit-m-role"></div>
+    <div class="dash-field"><label class="dash-label">Personal Letter (Arabic)</label><textarea class="dash-textarea text-lock-input" id="edit-m-letter"></textarea></div>
+    <div class="dash-field image-lock-field">
+      <label class="dash-label">Avatar Photo</label>
+      <button class="dash-add-btn" onclick="document.getElementById('photo-input').click()">Upload New Image</button>
+    </div>
+    <button class="dash-save btn-text-lock" onclick="saveFullMemberInfo()">SAVE CHANGES</button>
+  </div>
+</div>
+
+<div class="m-overlay" id="timeline-edit-modal">
+  <div class="m-box">
+    <button class="m-close" onclick="closeTimelineModal()">✕</button>
+    <div class="dash-sec-title">EDIT TIMELINE STEP</div>
+    <div class="dash-field"><label class="dash-label">Date String (e.g. SEP 2025)</label><input class="dash-input text-lock-input" id="edit-tl-date"></div>
+    <div class="dash-field"><label class="dash-label">English Node Title</label><input class="dash-input text-lock-input" id="edit-tl-en"></div>
+    <div class="dash-field"><label class="dash-label">Arabic Description</label><textarea class="dash-textarea text-lock-input" id="edit-tl-ar"></textarea></div>
+    <div class="dash-field"><label class="dash-label">Fallback Emoji (If no photo)</label><input class="dash-input text-lock-input" id="edit-tl-emoji"></div>
+    <div class="dash-field image-lock-field">
+      <label class="dash-label">Timeline Photo</label>
+      <button class="dash-add-btn" onclick="document.getElementById('timeline-photo-input').click()">Upload Card Photo</button>
+    </div>
+    <button class="dash-save btn-text-lock" onclick="saveFullTimelineInfo()">UPDATE NODE</button>
+  </div>
+</div>
+
+<script>
+const defaultD = {
+  texts: {
+    siteLogo: 'YLY KAFR ELSHIKH',
+    heroTag: 'YLY KAFR ELSHIKH · SEASON 2025–2026',
+    heroTitle: 'WE DIDN\'T\nJUST PARTICIPATE,\nWE LIVED IT.',
+    heroAr: 'مش مجرد مبادرة… دي حياة',
+    heroSub: 'YLY KAFR ELSHIKH · SEASON 2025–2026',
+    heroCta: 'START THE JOURNEY →',
+    tlTag: 'OUR JOURNEY',tlTitle: 'TIMELINE', tlAr: 'كل خطوة كانت بداية حلم،\nوكل لحظة كانت جزء من الحكاية.',
+    teamTag: 'OUR FAMILY', teamTitle: 'THE TEAM', teamAr: 'مافيش نجاح من غير ناس بيؤمنوا بنفس الحلم.',
+    momentsTag: 'UNFORGETTABLE', momentsTitle: 'THE MOMENTS', momentsAr: 'ضحكة، تعب، فرحة، دموع…\nكل لحظة كانت تستاهل.',
+    goodbyeTitle: 'GOODBYES\nARE NOT\nthe end.',
+    goodbyeAr: 'سيبوناش خلاص…\nلسه الحكاية مستمرة.',
+    goodbyeCta: '💛 THANK YOU, YLY',
+    modalGoodbye: 'شكراً لكل واحد فيكم على كل لحظة، كل مجهود، وكل لحظة حبتوا فيها YLY.\nالموسم ده مش بس موسم… ده ذكرى هتفضل في قلوبنا للأبد.\n\nSee you in the next chapter ♡',
+    musicUrl: '',
+    fbLink: 'https://www.facebook.com/share/1HmoVVvR3n/',
+    waLink: 'https://wa.me/201018187734',
+    footerTitle: 'YLY KAFR ELSHIKH',
+    copyright: '© 2025–2026 YLY KAFR ELSHIKH. ALL RIGHTS RESERVED. · محمود فؤاد',
+    accentColor: '#c9a84c',
+    planetLogo: '/mnt/user-data/uploads/508744209_122132104004718808_4096096571045931910_n.jpg',
+    goodbyeFrame: ''
+  },
+  timeline:[
+    {id:1,en:'THE LAUNCH',ar:'البداية والانطلاق',date:'SEP 2025',emoji:'🚀',photo:null},
+    {id:2,en:'FIRST MEETING',ar:'أول لقاء جمعنا',date:'OCT 2025',emoji:'🤝',photo:null},
+    {id:3,en:'TRAINING DAYS',ar:'أيام التدريب والتطور',date:'NOV 2025',emoji:'📚',photo:null},
+    {id:4,en:'BIG IMPACT',ar:'الأثر الكبير',date:'JAN 2026',emoji:'⭐',photo:null},
+    {id:5,en:'THE SUMMIT',ar:'قمة الإنجاز',date:'MAR 2026',emoji:'🏔',photo:null},
+    {id:6,en:'THE LEGACY',ar:'الإرث الخالد',date:'MAY 2026',emoji:'👑',photo:null}
+  ],
+  team:[
+    {id:1,name:'مهند عزت',role:'TEAM LEADER',letter:'قيادة بحب وإخلاص، شكراً لكل واحد ساعدنا نوصل لهنا. YLY للأبد 💛',photo:null},
+    {id:2,name:'شهد فتحي',role:'VICE TEAM LEADER',letter:'دعم لا ينتهي لكل أعضاء الفريق. فخورة بكل لحظة عشناها سوا 🌟',photo:null},
+    {id:3,name:'اسماء رفعت',role:'OR HEAD',letter:'التنظيم فن والفن حياة، كل لحظة في OR كانت تستاهل ✨',photo:null},
+    {id:4,name:'محمد ياسر',role:'OR COORDINATION LEADER',letter:'كل تنسيق كان خطوة للأمام، شكراً للفريق الرائع 💪',photo:null},
+    {id:5,name:'سهيلة السيد',role:'OR PLANNING LEADER',letter:'التخطيط أساس النجاح، وانتوا كنتم الأساس الحقيقي 🎯',photo:null},
+    {id:6,name:'أحمد السعيد',role:'PR HEAD',letter:'العلاقات العامة هي واجهتنا المشرقة، فخور بكل دقيقة معكم 🤝',photo:null},
+    {id:7,name:'ندى الشناوي',role:'HR HEAD',letter:'الموارد البشرية مش بس شغل، إحنا عيلة بتكبر وتدعم بعضها دايماً 🧡',photo:null},
+    {id:8,name:'أروى غالي',role:'LOGISTICS HEAD',letter:'خلف الكواليس بنصنع المستحيل، اللوجيستكس دايماً في الموعد 🛠️',photo:null},
+    {id:9,name:'محمود فؤاد',role:'DATA ANALYST & DEV',letter:'الأرقام والكود بيحكوا قصة نجاحنا، فخور بترك بصمتي هنا 💻',photo:null}
+  ],
+  memories:[
+    {id:1,caption:'لقطة الإطلاق الأسطورية للمبادرة بجامعة كفر الشيخ',date:'SEP 2025',emoji:'🚀',img:null,type:'image'},
+    {id:2,caption:'أول اجتماع عائلي جمع القادة والأعضاء على قلب رجل واحد',date:'OCT 2025',emoji:'🤝',img:null,type:'image'},
+    {id:3,caption:'أيام التدريب الشاق واكتساب الخبرات والمهارات القيادية',date:'NOV 2025',emoji:'📚',img:null,type:'image'},
+    {id:4,caption:'صناعة الأثر والنجاح الحقيقي في عيون الجميع',date:'JAN 2026',emoji:'🎉',img:null,type:'image'},
+    {id:5,caption:'روح العمل الجماعي والمساندة في تخطي الصعاب',date:'FEB 2026',emoji:'⭐',img:null,type:'image'},
+    {id:6,caption:'الوصول إلى قمة التميز وحصاد مجهود موسم كامل',date:'MAR 2026',emoji:'🏆',img:null,type:'image'}
+  ]
+};
+
+let D = JSON.parse(localStorage.getItem('YLY_CUSTOM_DATA')) || defaultD;
+function syncStorage() { localStorage.setItem('YLY_CUSTOM_DATA', JSON.stringify(D)); }
+
+// CURRENT ROLE RIGHTS TRACKING
+let currentRole = 'visitor'; // mahmoud, shrouk, shahd
+
+// ====== STARS EXTENSION ======
+const cv=document.getElementById('stars-canvas'),cx=cv.getContext('2d');
+let stars=[];
+function initStars(){cv.width=innerWidth;cv.height=innerHeight;stars=[];for(let i=0;i<260;i++)stars.push({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*1.2+0.2,sp:Math.random()*0.004+0.001,off:Math.random()*Math.PI*2});}
+function drawStars(t){cx.clearRect(0,0,cv.width,cv.height);stars.forEach(s=>{const a=0.2+0.6*Math.abs(Math.sin(t*s.sp+s.off));cx.beginPath();cx.arc(s.x,s.y,s.r,0,Math.PI*2);cx.fillStyle=`rgba(240,244,255,${a})`;cx.fill();});requestAnimationFrame(drawStars);}
+initStars();requestAnimationFrame(drawStars);
+window.addEventListener('resize',initStars);
+
+// ====== NEW SOFT CINEMATIC CURSOR ======
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+function animR(){rx+=(mx-rx)*0.15;ry+=(my-ry)*0.15;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animR);}animR();
+
+// ====== SCROLL INTERACTION ======
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',scrollY>50);});
+document.addEventListener('mousemove',e=>{const x=(e.clientX/innerWidth)*100,y=(e.clientY/innerHeight)*100;document.body.style.background=`radial-gradient(ellipse at ${x}% ${y}%, rgba(10,25,80,0.08) 0%, #01040d 80%)`;});
+
+// ====== BACKGROUND AUDIO SYSTEM ======
+let bgAudio = null;
+function toggleBackgroundMusic(){
+  const url = D.texts.musicUrl || '';
+  if(!url){ alert('Please log in as Admin and provide an .mp3 audio url inside General Settings.'); return; }
+  if(!bgAudio){ bgAudio = new Audio(url); bgAudio.loop = true; }
+  if(bgAudio.paused){ bgAudio.play().then(()=>{alert('Background Music Playing 🎵');}).catch(e=>{alert('Playback blocked. Interact with page first.');}); }
+  else{ bgAudio.pause(); alert('Background Music Paused 🔇'); }
+}
+
+// ====== TRIPLE CLICK DOOR TO PANEL ======
+let cc=0,ct=null;
+function countClick(){
+  cc++;
+  if(cc>=3){cc=0;clearTimeout(ct);document.getElementById('admin-overlay').classList.add('active');return;}
+  clearTimeout(ct);ct=setTimeout(()=>cc=0,700);
+}
+
+// ====== ADVANCED ROLE-BASED LOGIN HIERARCHY ======
+function doLogin(){
+  const e=document.getElementById('admin-email').value.trim().toLowerCase();
+  const p=document.getElementById('admin-pass').value;
+  let success = false;
+  
+  if(e==='mahmoud10f1m@gmail.com' && p==='m1221222122'){
+    currentRole = 'mahmoud'; success = true;
+  } else if(e==='shrouk_khaled@gmail.com' && p==='sh88588'){
+    currentRole = 'shrouk'; success = true;
+  } else if(e==='shahd_fathy@gmail.com' && p==='41459'){
+    currentRole = 'shahd'; success = true;
+  }
+  
+  if(success){
+    document.getElementById('admin-overlay').classList.remove('active');
+    document.getElementById('dashboard').classList.add('active');
+    applyRoleDashboardRestrictions();
+    renderDashTimeline(); renderDashTeam(); renderDashMem();
+  } else {
+    document.getElementById('admin-error').textContent='Invalid authorized credentials.';
+  }
+}
+
+function applyRoleDashboardRestrictions(){
+  const indicator = document.getElementById('dash-role-indicator');
+  
+  // Reset visibility
+  document.querySelectorAll('.dash-tab').forEach(t=>t.style.display='inline-block');
+  document.querySelectorAll('.btn-text-lock, .text-lock-input').forEach(el=>el.removeAttribute('disabled'));
+  document.querySelectorAll('.image-lock-field').forEach(el=>el.style.pointerEvents='auto');
+  document.querySelectorAll('.image-lock-field').forEach(el=>el.style.opacity='1');
+
+  if(currentRole === 'mahmoud'){
+    indicator.textContent = '⚙ SUPER ADMIN · MAHMOUD';
+  } 
+  else if(currentRole === 'shrouk') {
+    indicator.textContent = '🖼 MEDIA ADMIN · SHROUK (IMAGES ONLY)';
+    // Hide text specific panes/buttons
+    document.getElementById('tab-hero').style.display = 'none';
+    document.querySelectorAll('.btn-text-lock, .text-lock-input').forEach(el=>el.setAttribute('disabled','true'));
+    switchTab(document.getElementById('tab-moments'), 'p-moments');
+  } 
+  else if(currentRole === 'shahd') {
+    indicator.textContent = '✍ TEXT ADMIN · SHAHD (TEXTS ONLY)';
+    // Disable/Hide image controls
+    document.getElementById('tab-moments').style.display = 'none';
+    document.querySelectorAll('.image-lock-field').forEach(el=>{
+      el.style.pointerEvents='none';
+      el.style.opacity='0.2';
+    });
+    switchTab(document.getElementById('tab-hero'), 'p-hero');
+  }
+}
+
+document.getElementById('admin-email').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('admin-pass').focus();});
+document.getElementById('admin-pass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+
+// ====== DASHBOARD SWITCH TAB ======
+function switchTab(btn,panelId){
+  if(currentRole==='shrouk' && panelId==='p-hero') return;
+  if(currentRole==='shahd' && panelId==='p-moments') return;
+  document.querySelectorAll('.dash-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.dash-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active'); document.getElementById(panelId).classList.add('active');
+}
+
+// ====== PERSIST ALL WRITTEN TEXTS ======
+function saveTexts() {
+  if(currentRole==='shrouk') return;
+  D.texts.siteLogo = document.getElementById('d-site-logo').value;
+  D.texts.heroTitle = document.getElementById('d-title').value;
+  D.texts.heroAr = document.getElementById('d-ar').value;
+  D.texts.heroTag = document.getElementById('d-tag').value;
+  D.texts.heroSub = document.getElementById('d-sub').value;
+  D.texts.heroCta = document.getElementById('d-cta').value;
+  D.texts.tlTag = document.getElementById('d-tl-tag').value;
+  D.texts.tlTitle = document.getElementById('d-tl-title').value;
+  D.texts.tlAr = document.getElementById('d-tl-ar').value;
+  D.texts.teamTag = document.getElementById('d-team-tag').value;
+  D.texts.teamTitle = document.getElementById('d-team-title').value;
+  D.texts.teamAr = document.getElementById('d-team-ar').value;
+  syncStorage(); renderAllStaticTexts();
+  alert('✓ General text changes saved securely!');
+}
+
+function saveSettings(){
+  if(currentRole==='shrouk') return;
+  D.texts.goodbyeTitle = document.getElementById('d-goodbye-title').value;
+  D.texts.goodbyeAr = document.getElementById('d-goodbye-ar').value;
+  D.texts.goodbyeCta = document.getElementById('d-goodbye-cta').value;
+  D.texts.modalGoodbye = document.getElementById('d-modal-goodbye').value;
+  D.texts.musicUrl = document.getElementById('d-music').value;
+  D.texts.fbLink = document.getElementById('d-fb').value;
+  D.texts.waLink = document.getElementById('d-wa').value;
+  D.texts.footerTitle = document.getElementById('d-footer-title').value;
+  D.texts.copyright = document.getElementById('d-copy').value;
+  D.texts.accentColor = document.getElementById('d-color').value;
+  if(bgAudio){ bgAudio.pause(); bgAudio = null; }
+  syncStorage(); renderAllStaticTexts(); applyGlobalAccentColor();
+  alert('✓ General configurations & links successfully compiled.');
+}
+
+function applyGlobalAccentColor(){
+  const clr = D.texts.accentColor || '#c9a84c';
+  document.documentElement.style.setProperty('--gold', clr);
+  document.documentElement.style.setProperty('--gold-light', clr);
+}
+
+// ====== RENDER ALL STATIC TEXT COPIES ======
+function renderAllStaticTexts(){
+  const tx = D.texts;
+  document.getElementById('site-logo-text').textContent = tx.siteLogo;
+  document.getElementById('hero-tag-text').textContent = tx.heroTag;
+  
+  const titleContainer = document.getElementById('hero-main-title');
+  titleContainer.innerHTML = '';
+  tx.heroTitle.split('\n').forEach(ln=>{ const span=document.createElement('span'); span.textContent=ln; titleContainer.appendChild(span); });
+  
+  document.getElementById('hero-ar-text').textContent = tx.heroAr;
+  document.getElementById('hero-sub-text').textContent = tx.heroSub;
+  document.getElementById('hero-cta-btn').querySelector('span').textContent = tx.heroCta;
+  document.getElementById('tl-tag-text').textContent = tx.tlTag;
+  document.getElementById('tl-title-text').textContent = tx.tlTitle;
+  document.getElementById('tl-ar-text').innerHTML = tx.tlAr.replace(/\n/g, '<br>');
+  document.getElementById('team-tag-text').textContent = tx.teamTag;
+  document.getElementById('team-title-text').textContent = tx.teamTitle;
+  document.getElementById('team-ar-text').textContent = tx.teamAr;
+  
+  const goodbyeTitle = document.getElementById('goodbye-main-title');
+  goodbyeTitle.innerHTML = tx.goodbyeTitle.replace(/\n/g, '<br>');
+  
+  document.getElementById('goodbye-ar-text').innerHTML = tx.goodbyeAr.replace(/\n/g, '<br>');
+  document.getElementById('goodbye-cta-btn').textContent = tx.goodbyeCta;
+  document.getElementById('modal-goodbye-body').innerHTML = tx.modalGoodbye.replace(/\n/g, '<br>');
+  document.getElementById('footer-logo-text').textContent = tx.footerTitle || tx.siteLogo;
+  document.getElementById('footer-copy').textContent = tx.copyright;
+  
+  document.getElementById('fb-link-el').href = tx.fbLink || '#';
+  document.getElementById('wa-link-el').href = tx.waLink || '#';
+  
+  if(tx.planetLogo){ document.getElementById('planet-img-logo').src = tx.planetLogo; }
+  const frameImg = document.getElementById('goodbye-frame-img');
+  const framePh = document.getElementById('frame-ph-el');
+  if(tx.goodbyeFrame){ frameImg.src = tx.goodbyeFrame; frameImg.style.display='block'; framePh.style.display='none'; }
+  else{ frameImg.style.display='none'; framePh.style.display='block'; }
+}
+
+function fillDashInputs(){
+  const tx = D.texts;
+  document.getElementById('d-site-logo').value = tx.siteLogo;
+  document.getElementById('d-tag').value = tx.heroTag;
+  document.getElementById('d-title').value = tx.heroTitle;
+  document.getElementById('d-ar').value = tx.heroAr;
+  document.getElementById('d-sub').value = tx.heroSub;
+  document.getElementById('d-cta').value = tx.heroCta;
+  document.getElementById('d-tl-tag').value = tx.tlTag;
+  document.getElementById('d-tl-title').value = tx.tlTitle;
+  document.getElementById('d-tl-ar').value = tx.tlAr;
+  document.getElementById('d-team-tag').value = tx.teamTag;
+  document.getElementById('d-team-title').value = tx.teamTitle;
+  document.getElementById('d-team-ar').value = tx.teamAr;
+  document.getElementById('d-goodbye-title').value = tx.goodbyeTitle;
+  document.getElementById('d-goodbye-ar').value = tx.goodbyeAr;
+  document.getElementById('d-goodbye-cta').value = tx.goodbyeCta;
+  document.getElementById('d-modal-goodbye').value = tx.modalGoodbye;
+  document.getElementById('d-music').value = tx.musicUrl;
+  document.getElementById('d-fb').value = tx.fbLink;
+  document.getElementById('d-wa').value = tx.waLink;
+  document.getElementById('d-footer-title').value = tx.footerTitle;
+  document.getElementById('d-copy').value = tx.copyright;
+  document.getElementById('d-color').value = tx.accentColor;
+}
+
+// ====== TIMELINE RENDERING ======
+function renderTimeline(){
+  const t=document.getElementById('timeline-track'); if(!t)return;
+  t.innerHTML='<div class="timeline-line"></div>';
+  D.timeline.forEach(item=>{
+    const c=document.createElement('div');c.className='timeline-card';
+    const mediaContainer = item.photo ? `<img src="${item.photo}" alt="${item.en}">` : (item.emoji || '⭐');
+    c.innerHTML=`<div class="timeline-node"></div><div class="timeline-img-ph">${mediaContainer}</div><div class="timeline-body"><div class="timeline-date">${item.date}</div><div class="timeline-en">${item.en}</div><div class="timeline-ar">${item.ar}</div></div>`;
+    t.appendChild(c);
+  });
+  refreshScrollReveals();
+}
+
+// ====== BRAND NEW TIMELINE-STYLE HORIZONTAL TEAM TRACK RENDERING ======
+function initials(name){const p=name.trim().split(' ');return p.length>=2?(p[0][0]+p[1][0]).toUpperCase():name.substring(0,2).toUpperCase();}
+
+function renderTeam(){
+  const track = document.getElementById('team-track-container'); if(!track) return;
+  track.innerHTML = '<div class="team-horizontal-line"></div>';
+  
+  // FORCE MAHMOUD FOUAD TO BE AT THE ABSOLUTE END
+  let filteredTeam = D.team.filter(m => !m.name.includes('محمود فؤاد'));
+  let mahmoudObj = D.team.find(m => m.name.includes('محمود فؤاد'));
+  if(mahmoudObj) { filteredTeam.push(mahmoudObj); }
+  
+  filteredTeam.forEach((m, index) => {
+    const card = document.createElement('div'); card.className = 'person-card';
+    const avi = m.photo ? `<img src="${m.photo}" alt="${m.name}">` : `<span>${initials(m.name)}</span>`;
+    
+    // Antique style icon triggers interactive typing letter effect
+    card.innerHTML = `<div class="team-horizontal-node"></div><div class="person-avatar">${avi}</div><div class="person-role">${m.role}</div><div class="person-name">${m.name}</div><button class="letter-trigger-btn" onclick="triggerCinematicLetter('${m.name.replace(/'/g, "\\'")}', '${m.role}', '${(m.letter||'').replace(/\n/g, '\\n').replace(/'/g, "\\'")}')">✉</button>`;
+    track.appendChild(card);
+  });
+  refreshScrollReveals();
+}
+
+// ====== HANDWRITTEN INTERACTIVE TYPEWRITER CONTROLLER ======
+let typeTimer = null;
+function triggerCinematicLetter(name, role, fullLetterText) {
+  if(!fullLetterText || fullLetterText.trim()==='') { fullLetterText = "كل التوفيق والتقدير لكم في القادم.. الحكاية مستمرة دائماً 💛"; }
+  document.getElementById('type-author-el').textContent = name;
+  document.getElementById('type-role-el').textContent = role;
+  const textContainer = document.getElementById('type-text-el');
+  textContainer.textContent = '';
+  
+  document.getElementById('typewriter-modal').classList.add('active');
+  
+  // Typewriter effect logic
+  let charIdx = 0;
+  clearInterval(typeTimer);
+  typeTimer = setInterval(() => {
+    if(charIdx < fullLetterText.length) {
+      textContainer.textContent += fullLetterText.charAt(charIdx);
+      charIdx++;
+    } else {
+      clearInterval(typeTimer);
+    }
+  }, 45); // Natural typing speed
+}
+
+function closeTypewriterModal(event, force=false) {
+  if(force || event.target.id === 'typewriter-modal') {
+    clearInterval(typeTimer);
+    document.getElementById('typewriter-modal').classList.remove('active');
+  }
+}
+
+// ====== SCATTERED MEMORIES WALL RENDERING ======
+function renderMemories(){
+  const wall=document.getElementById('memories-wall'); if(!wall)return;
+  wall.innerHTML='';
+  const config = [
+    {top: '20px', left: '30px', rot: '-5deg'}, {top: '50px', left: '260px', rot: '6deg'}, {top: '10px', left: '520px', rot: '-4deg'}, {top: '60px', left: '760px', rot: '8deg'}, {top: '20px', left: '980px', rot: '-6deg'},
+    {top: '320px', left: '15px', rot: '5deg'}, {top: '360px', left: '290px', rot: '-4deg'}, {top: '340px', left: '560px', rot: '7deg'}, {top: '380px', left: '810px', rot: '-5deg'}, {top: '280px', left: '1020px', rot: '4deg'}
+  ];
+  D.memories.forEach((m, idx) => {
+    const c=document.createElement('div'); c.className='memory-card';
+    const lay = config[idx % config.length];
+    if(window.innerWidth > 900) {
+      c.style.top = lay.top; c.style.left = lay.left; c.style.transform = `rotate(${lay.rot})`;
+      c.style.zIndex = Math.floor(Math.random() * 10) + 5;
+    }
+    let mediaHTML = `<div class="memory-ph">${m.emoji||'📸'}</div>`;
+    if(m.img) {
+      if(m.type === 'video') { mediaHTML = `<video src="${m.img}" class="memory-video-el" muted loop playsinline></video><div class="video-badge">▶</div>`; }
+      else { mediaHTML = `<img src="${m.img}" class="memory-img-el" alt="${m.caption}">`; }
+    }
+    c.innerHTML=`<div class="memory-tape"></div><div class="memory-rec"><div class="rec-dot"></div> REC</div><div class="memory-media-box">${mediaHTML}</div><div class="memory-caption"><div class="memory-date">${m.date}</div><div>${m.caption}</div></div>`;
+    c.onclick = () => openLightbox(idx);
+    wall.appendChild(c);
+  });
+  refreshScrollReveals();
+}
+
+// ====== LIGHTBOX VIEWER SYSTEM ======
+let curLightboxIdx = null;
+function openLightbox(idx) {
+  curLightboxIdx = idx; const m = D.memories[idx]; if(!m)return;
+  const container = document.getElementById('lightbox-content');
+  const caption = document.getElementById('lightbox-caption');
+  container.innerHTML = '';
+  if(m.img) {
+    if(m.type === 'video') { container.innerHTML = `<video src="${m.img}" controls autoplay style="width:100%; max-height:70vh;"></video>`; }
+    else { container.innerHTML = `<img src="${m.img}" alt="Memory">`; }
+  } else { container.innerHTML = `<div style="font-size:100px; padding:60px; text-align:center;">${m.emoji || '📸'}</div>`; }
+  caption.innerHTML = `<strong style="color:var(--gold-light); display:block; font-family:Orbitron; font-size:12px;">${m.date}</strong>${m.caption}`;
+  document.getElementById('lightbox-viewer').classList.add('active');
+}
+function closeLightbox(event, force=false) {
+  if(force || event.target.id === 'lightbox-viewer') {
+    const container = document.getElementById('lightbox-content');
+    container.innerHTML = ''; document.getElementById('lightbox-viewer').classList.remove('active');
+  }
+}
+function navigateLightbox(d) {
+  let next = curLightboxIdx + d;
+  if(next < 0) next = D.memories.length - 1; if(next >= D.memories.length) next = 0;
+  openLightbox(next);
+}
+
+// ====== PLANET LOGO UPLOADER ======
+function triggerPlanetUpload(){ 
+  if(currentRole==='shahd') return;
+  document.getElementById('planet-file-input').click(); 
+}
+function onPlanetLogoUploaded(ev){
+  const f=ev.target.files[0]; if(!f)return;
+  const r=new FileReader(); r.onload=e=>{ D.texts.planetLogo = e.target.result; syncStorage(); renderAllStaticTexts(); };
+  r.readAsDataURL(f);
+}
+
+// ====== GOODBYE FRAME UPLOADER ======
+function triggerGoodbyeFrameUpload(){ 
+  if(currentRole==='shahd') return;
+  document.getElementById('goodbye-frame-input').click(); 
+}
+function onGoodbyeFrameUploaded(ev){
+  const f=ev.target.files[0]; if(!f)return;
+  const r=new FileReader(); r.onload=e=>{ D.texts.goodbyeFrame = e.target.result; syncStorage(); renderAllStaticTexts(); };
+  r.readAsDataURL(f);
+}
+
+// ====== DASHBOARD TIMELINE HUB ======
+function renderDashTimeline(){
+  const l=document.getElementById('dash-timeline-list'); l.innerHTML='';
+  D.timeline.forEach((item,i)=>{
+    const d=document.createElement('div');d.className='d-card';
+    const photoContainer = item.photo ? `<div class="d-avi"><img src="${item.photo}"></div>` : `<div class="d-avi">${item.emoji||'⭐'}</div>`;
+    
+    // Remove functionality restricted for specific roles if necessary, but keep layout
+    const deleteBtn = currentRole==='shrouk' ? '' : `<button class="d-del" onclick="delTimelineNode(${i})">✕ DELETE</button>`;
+    
+    d.innerHTML=`${photoContainer}<div class="d-card-info"><div class="d-card-name" style="direction:ltr; text-align:left;">[${item.date}] ${item.en}</div><div class="d-card-sub" style="direction:rtl; text-align:right;">${item.ar}</div></div><div class="d-card-actions"><button class="d-edit" onclick="openTimelineModal(${i})">✏ EDIT NODE</button>${deleteBtn}</div>`;
+    l.appendChild(d);
+  });
+}
+let currentTlIdx=null;
+function openTimelineModal(i){
+  currentTlIdx=i; const node=D.timeline[i];
+  document.getElementById('edit-tl-date').value = node.date;
+  document.getElementById('edit-tl-en').value = node.en;
+  document.getElementById('edit-tl-ar').value = node.ar;
+  document.getElementById('edit-tl-emoji').value = node.emoji||'⭐';
+  document.getElementById('timeline-edit-modal').classList.add('active');
+  applyRoleDashboardRestrictions();
+}
+function closeTimelineModal(){ document.getElementById('timeline-edit-modal').classList.remove('active'); currentTlIdx=null; }
+function onTimelinePhotoUploaded(ev){
+  const f=ev.target.files[0];if(!f||currentTlIdx===null)return;
+  const r=new FileReader(); r.onload=e=>{ D.timeline[currentTlIdx].photo = e.target.result; alert('Card image cached successfully.'); };
+  r.readAsDataURL(f); ev.target.value='';
+}
+function saveFullTimelineInfo(){
+  if(currentTlIdx===null)return; const node=D.timeline[currentTlIdx];
+  if(currentRole !== 'shrouk') {
+    node.date = document.getElementById('edit-tl-date').value;
+    node.en = document.getElementById('edit-tl-en').value;
+    node.ar = document.getElementById('edit-tl-ar').value;
+    node.emoji = document.getElementById('edit-tl-emoji').value;
+  }
+  syncStorage(); renderTimeline(); renderDashTimeline(); closeTimelineModal();
+}
+function addTimelineNode(){
+  if(currentRole==='shrouk') return;
+  const en=prompt('Enter English Card Title:'); if(!en)return;
+  const ar=prompt('Enter Arabic Card Description:');
+  D.timeline.push({id:Date.now(),en,ar:ar||'',date:'2026',emoji:'⭐',photo:null});
+  syncStorage(); renderTimeline(); renderDashTimeline();
+}
+function delTimelineNode(i){
+  if(currentRole==='shrouk') return;
+  if(confirm('Are you completely sure you want to delete this step?')){
+    D.timeline.splice(i,1); syncStorage(); renderTimeline(); renderDashTimeline();
+  }
+}
+
+// ====== DASHBOARD MEMBERS HUB ======
+function renderDashTeam(){
+  const l=document.getElementById('team-list');l.innerHTML='';
+  D.team.forEach((m,i)=>{
+    const d=document.createElement('div');d.className='d-card';
+    const avi=m.photo?`<div class="d-avi"><img src="${m.photo}"></div>`:`<div class="d-avi">${initials(m.name)}</div>`;
+    const deleteBtn = currentRole==='shrouk' ? '' : `<button class="d-del" onclick="delMember(${i})">✕ REMOVE</button>`;
+    
+    d.innerHTML=`${avi}<div class="d-card-info"><div class="d-card-name">${m.name}</div><div class="d-card-sub">${m.role}</div></div><div class="d-card-actions"><button class="d-edit" onclick="openPhotoModal(${i})">✏ EDIT PROFILES</button>${deleteBtn}</div>`;
+    l.appendChild(d);
+  });
+}
+let curIdx=null;
+function addTeamMember() {
+  if(currentRole==='shrouk') return;
+  const name = prompt('Enter Member Full Name (Arabic):'); if(!name) return;
+  const role = prompt('Enter Role Title (English):') || 'MEMBER';
+  D.team.push({id:Date.now(),name,role,letter:'',photo:null});
+  syncStorage(); renderTeam(); renderDashTeam();
+}
+function delMember(i){ 
+  if(currentRole==='shrouk') return;
+  if(confirm('Delete user from database?')){ D.team.splice(i,1); syncStorage(); renderTeam(); renderDashTeam(); } 
+}
+function openPhotoModal(i){
+  curIdx=i; const m=D.team[i];
+  document.getElementById('edit-m-name').value = m.name;
+  document.getElementById('edit-m-role').value = m.role;
+  document.getElementById('edit-m-letter').value = m.letter||'';
+  document.getElementById('team-edit-modal').classList.add('active');
+  applyRoleDashboardRestrictions();
+}
+function closePhotoModal(){ document.getElementById('team-edit-modal').classList.remove('active'); curIdx=null; }
+function onPhotoUploaded(ev){
+  const f=ev.target.files[0];if(!f||curIdx===null)return;
+  const r=new FileReader(); r.onload=e=>{ D.team[curIdx].photo = e.target.result; alert('Avatar binary cached code.'); };
+  r.readAsDataURL(f); ev.target.value='';
+}
+function saveFullMemberInfo(){
+  if(curIdx===null)return; const m=D.team[curIdx];
+  if(currentRole !== 'shrouk') {
+    m.name = document.getElementById('edit-m-name').value;
+    m.role = document.getElementById('edit-m-role').value;
+    m.letter = document.getElementById('edit-m-letter').value;
+  }
+  syncStorage(); renderTeam(); renderDashTeam(); closePhotoModal();
+}
+
+// ====== DASHBOARD MEMORIES HUBS ======
+function renderDashMem(){
+  const l=document.getElementById('mem-list');l.innerHTML='';
+  D.memories.forEach((m,i)=>{
+    const d=document.createElement('div');d.className='d-card';
+    const thumb = m.img ? (m.type==='video'?`<video src="${m.img}" style="width:100%;height:100%;object-fit:cover;"></video>`:`<img src="${m.img}">`) : (m.emoji||'📸');
+    const actionButtons = currentRole==='shahd' ? '' : `<button class="d-edit" onclick="editMem(${i})">✏ CAPTION</button><button class="d-del" onclick="delMem(${i})">DELETE</button>`;
+    
+    d.innerHTML=`<div class="d-avi">${thumb}</div><div class="d-card-info"><div class="d-card-name" style="font-size:12px;">${m.caption}</div><div class="d-card-sub">[${m.date}] (${m.type||'image'})</div></div><div class="d-card-actions">${actionButtons}</div>`;
+    l.appendChild(d);
+  });
+  if(currentRole !== 'shrouk'){
+    D.texts.momentsTag = document.getElementById('d-moments-tag').value;
+    D.texts.momentsTitle = document.getElementById('d-moments-title').value;
+    D.texts.momentsAr = document.getElementById('d-moments-ar').value;
+  }
+}
+function onMemUploaded(ev){
+  if(currentRole==='shahd') return;
+  const f=ev.target.files[0];if(!f)return;
+  const mediaType = f.type.startsWith('video') ? 'video' : 'image';
+  const r=new FileReader();
+  r.onload=e=>{
+    const cap=prompt('Enter Memory Caption / Details:')||'لحظة غالية';
+    const date=prompt('Date Label (e.g. FEB 2026):','2026')||'2026';
+    D.memories.push({id:Date.now(),caption:cap,date,emoji:mediaType==='video'?'🎥':'📸',img:e.target.result,type:mediaType});
+    syncStorage(); renderMemories(); renderDashMem();
+  };
+  r.readAsDataURL(f); ev.target.value='';
+}
+function editMem(i){
+  if(currentRole==='shahd') return;
+  const m=D.memories[i];
+  const cap=prompt('Update Caption:',m.caption); if(cap===null)return;
+  const dt=prompt('Update Date Label:',m.date); if(dt===null)return;
+  m.caption=cap; m.date=dt; syncStorage(); renderMemories(); renderDashMem();
+}
+function delMem(i){ 
+  if(currentRole==='shahd') return;
+  if(confirm('Delete memory completely?')){ D.memories.splice(i,1); syncStorage(); renderMemories(); renderDashMem(); } 
+}
+
+// ====== SCROLL REVEAL TRIGGERS ======
+function refreshScrollReveals(){
+  const els = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } }); },{threshold:0.05});
+  els.forEach(el=>observer.observe(el));
+}
+
+// ====== BOOTSTRAP INITIALIZATION ======
+window.addEventListener('DOMContentLoaded',()=>{
+  renderAllStaticTexts(); fillDashInputs(); applyGlobalAccentColor();
+  renderTimeline(); renderTeam(); renderMemories();
+});
+</script>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDo-7M8YwAXjTknwjFuLbxPZyaAYAPorgc",
+  authDomain: "ylys7-438fb.firebaseapp.com",
+  projectId: "ylys7-438fb",
+  storageBucket: "ylys7-438fb.firebasestorage.app",
+  messagingSenderId: "829971524978",
+  appId: "1:829971524978:web:a9872be54c7010444441eb",
+  measurementId: "G-BDL3HJ558M"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+window.saveFirebaseData = async function () {
+
+   await setDoc(doc(db, "siteData", "main"), D);
+
+   console.log("Saved 🔥");
+};
+
+window.loadFirebaseData = async function () {
+
+   const snap = await getDoc(doc(db, "siteData", "main"));
+
+   if (snap.exists()) {
+
+      D = snap.data();
+
+      renderEverything();
+
+      console.log("Loaded 🔥");
+   }
+};
+
+loadFirebaseData();
+
+</script>
+
+</body>
+</html>
+
