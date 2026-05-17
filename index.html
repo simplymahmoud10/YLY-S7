@@ -213,8 +213,8 @@ footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);pa
 .dash-tabs{display:flex;gap:6px;flex-wrap:wrap;}
 .dash-tab{font-family:'Orbitron',sans-serif;font-size:9px;letter-spacing:2px;color:var(--white-dim);border:1px solid rgba(201,168,76,0.15);padding:8px 13px;cursor:pointer;background:transparent;transition:all 0.3s;text-transform:uppercase;}
 .dash-tab.active,.dash-tab:hover{color:var(--gold-light);border-color:var(--gold);background:rgba(201,168,76,0.05);}
-.dash-close{font-family:'Orbitron',sans-serif;font-size:9px;color:var(--white-dim);letter-spacing:2px;cursor:pointer;background:none;padding:8px 14px;border:1px solid rgba(255,100,100,0.3);transition:all 0.3s;text-transform:uppercase;}
-.dash-close:hover{color:#ff6b6b;border-color:#ff6b6b;}
+.dash-close{font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;color:#ff6b6b;letter-spacing:2px;cursor:pointer;background:rgba(255,107,107,0.1);padding:10px 22px;border:1px solid rgba(255,100,100,0.5);transition:all 0.3s;text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
+.dash-close:hover{background:rgba(255,107,107,0.25);border-color:#ff6b6b;box-shadow:0 0 16px rgba(255,107,107,0.3);}
 .dash-body{padding:32px;}
 .dash-panel{display:none;}
 .dash-panel.active{display:block;}
@@ -472,8 +472,9 @@ footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);pa
       <button class="dash-tab" id="tab-team" onclick="switchTab(this,'p-team')">TEAM MEMBERS</button>
       <button class="dash-tab" id="tab-moments" onclick="switchTab(this,'p-moments')">MEMORIES WALL</button>
       <button class="dash-tab" id="tab-settings" onclick="switchTab(this,'p-settings')">SETTINGS & LOGOS</button>
+      <button class="dash-tab" id="tab-committees" onclick="switchTab(this,'p-committees');switchCommTab('OR');">COMMITTEES</button>
     </div>
-    <button class="dash-close" onclick="document.getElementById('dashboard').classList.remove('active')">CLOSE PANEL</button>
+    <button class="dash-close" onclick="document.getElementById('dashboard').classList.remove('active');document.getElementById('navbar').style.display='';">CLOSE PANEL</button>
   </div>
   <div class="dash-body">
     
@@ -565,6 +566,19 @@ footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);pa
       </div>
 
       <button class="dash-save btn-text-lock" style="margin-top:20px;" onclick="saveSettings()">SAVE SYSTEM CONFIGS</button>
+    </div>
+
+    <div class="dash-panel" id="p-committees">
+      <div class="dash-sec-title">COMMITTEES MANAGEMENT</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;">
+        <button class="dash-tab" id="ctab-OR" onclick="switchCommTab('OR')" style="font-size:10px;padding:10px 20px;">OR FAMILY</button>
+        <button class="dash-tab" id="ctab-SM" onclick="switchCommTab('SM')" style="font-size:10px;padding:10px 20px;">SM FAMILY</button>
+        <button class="dash-tab" id="ctab-HR" onclick="switchCommTab('HR')" style="font-size:10px;padding:10px 20px;">HR FAMILY</button>
+        <button class="dash-tab" id="ctab-PR" onclick="switchCommTab('PR')" style="font-size:10px;padding:10px 20px;">PR FAMILY</button>
+        <button class="dash-tab" id="ctab-TRAINING" onclick="switchCommTab('TRAINING')" style="font-size:10px;padding:10px 20px;">TRAINING FAMILY</button>
+      </div>
+      <div id="dash-comm-list" style="display:flex;flex-direction:column;gap:12px;"></div>
+      <button class="dash-add-btn" style="margin-top:20px;" onclick="dashAddCommMember()">+ ADD MEMBER</button>
     </div>
 
   </div>
@@ -728,6 +742,7 @@ function syncStorage() {
 }
 // CURRENT ROLE RIGHTS TRACKING
 let currentRole = 'visitor'; // mahmoud, shrouk, shahd
+window.currentRole = 'visitor';
 
 // ====== STARS EXTENSION ======
 const cv=document.getElementById('stars-canvas'),cx=cv.getContext('2d');
@@ -736,6 +751,14 @@ function initStars(){cv.width=innerWidth;cv.height=innerHeight;stars=[];for(let 
 function drawStars(t){cx.clearRect(0,0,cv.width,cv.height);stars.forEach(s=>{const a=0.2+0.6*Math.abs(Math.sin(t*s.sp+s.off));cx.beginPath();cx.arc(s.x,s.y,s.r,0,Math.PI*2);cx.fillStyle=`rgba(240,244,255,${a})`;cx.fill();});requestAnimationFrame(drawStars);}
 initStars();requestAnimationFrame(drawStars);
 window.addEventListener('resize',initStars);
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    document.getElementById('dashboard').classList.remove('active');
+    document.getElementById('navbar').style.display = '';
+    document.getElementById('admin-overlay').classList.remove('active');
+  }
+});
 
 // ====== SCROLL INTERACTION ======
 window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',scrollY>50);});
@@ -770,18 +793,19 @@ function doLogin(){
   let success = false;
   
   if(e==='mahmoud10f1m@gmail.com' && p==='m1221222122'){
-    currentRole = 'mahmoud'; success = true;
+    currentRole = 'mahmoud'; window.currentRole = 'mahmoud'; success = true;
   } else if(e==='shrouk_khaled@gmail.com' && p==='sh88588'){
-    currentRole = 'shrouk'; success = true;
+    currentRole = 'shrouk'; window.currentRole = 'shrouk'; success = true;
   } else if(e==='shahd_fathy@gmail.com' && p==='41459'){
-    currentRole = 'shahd'; success = true;
+    currentRole = 'shahd'; window.currentRole = 'shahd'; success = true;
   }
   
   if(success){
     document.getElementById('admin-overlay').classList.remove('active');
     document.getElementById('dashboard').classList.add('active');
+    document.getElementById('navbar').style.display = 'none';
     applyRoleDashboardRestrictions();
-    renderDashTimeline(); renderDashTeam(); renderDashMem();
+    renderDashTimeline(); renderDashTeam(); renderDashMem(); renderDashCommList();
   } else {
     document.getElementById('admin-error').textContent='Invalid authorized credentials.';
   }
@@ -1072,29 +1096,13 @@ function closeCommMemberModal(){
   editCommKey = null; editCommIdx = null;
 }
 
-function saveCommMember(){
-  if(!editCommKey) return;
-  if(!D.committees) D.committees = {OR:[],SM:[],HR:[],PR:[]};
-  const name   = document.getElementById('comm-edit-name').value.trim();
-  const role   = document.getElementById('comm-edit-role').value.trim();
-  const letter = document.getElementById('comm-edit-letter').value.trim();
-  if(!name) return alert('ادخل الاسم أولاً');
-  if(editCommIdx !== null){
-    D.committees[editCommKey][editCommIdx] = {...D.committees[editCommKey][editCommIdx], name, role, letter};
-  } else {
-    D.committees[editCommKey].push({id:Date.now(), name, role, letter, photo:null});
-  }
-  syncStorage(); saveFirebaseData();
-  renderCommitteePanel(editCommKey);
-  closeCommMemberModal();
-}
-
 function deleteCommMember(){
   if(editCommKey === null || editCommIdx === null) return;
   if(!confirm('مسح العضو؟')) return;
   D.committees[editCommKey].splice(editCommIdx, 1);
   syncStorage(); saveFirebaseData();
-  renderCommitteePanel(editCommKey);
+  if(activeCommittee === editCommKey) renderCommitteePanel(editCommKey);
+  renderDashCommList();
   closeCommMemberModal();
 }
 
@@ -1105,6 +1113,89 @@ function onCommPhotoUploaded(ev){
 window.curCommKey = null;
 window.curCommIdx = null;
 let typeTimer = null;
+// ====== DASHBOARD COMMITTEES ======
+let activeDashCommKey = 'OR';
+
+function switchCommTab(key){
+  activeDashCommKey = key;
+  document.querySelectorAll('[id^="ctab-"]').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('ctab-' + key);
+  if(btn) btn.classList.add('active');
+  renderDashCommList();
+}
+
+function renderDashCommList(){
+  if(!D.committees) D.committees = {OR:[],SM:[],HR:[],PR:[],TRAINING:[]};
+  const members = D.committees[activeDashCommKey] || [];
+  const list = document.getElementById('dash-comm-list');
+  if(!list) return;
+  list.innerHTML = '';
+  members.forEach((m, i) => {
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:12px;background:rgba(5,14,36,0.8);border:1px solid rgba(201,168,76,0.15);padding:14px 18px;border-radius:4px;';
+    row.innerHTML = `
+      <div style="width:40px;height:40px;border-radius:50%;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gold);overflow:hidden;flex-shrink:0;">
+        ${m.photo ? `<img src="${m.photo}" style="width:100%;height:100%;object-fit:cover;">` : initials(m.name)}
+      </div>
+      <div style="flex:1;">
+        <div style="font-family:'Orbitron',sans-serif;font-size:10px;color:var(--white);letter-spacing:1px;">${m.name}</div>
+        <div style="font-size:10px;color:rgba(201,168,255,0.6);margin-top:3px;">${m.role}</div>
+      </div>
+      <button class="dash-add-btn" style="font-size:9px;padding:7px 14px;" onclick="dashEditCommMember(${i})">EDIT</button>
+      <button class="dash-add-btn" style="font-size:9px;padding:7px 14px;border-color:rgba(255,80,80,0.4);color:#ff6b6b;" onclick="dashDeleteCommMember(${i})">DELETE</button>
+    `;
+    list.appendChild(row);
+  });
+  if(members.length === 0){
+    list.innerHTML = '<div style="text-align:center;color:rgba(240,244,255,0.3);padding:32px;font-size:12px;">لا يوجد أعضاء — اضغط + ADD MEMBER</div>';
+  }
+}
+
+function dashAddCommMember(){
+  window.curCommKey = activeDashCommKey;
+  window.curCommIdx = null;
+  editCommKey = activeDashCommKey;
+  editCommIdx = null;
+  document.getElementById('comm-edit-name').value = '';
+  document.getElementById('comm-edit-role').value = activeDashCommKey + ' MEMBER';
+  document.getElementById('comm-edit-letter').value = '';
+  document.getElementById('comm-edit-title').textContent = 'ADD MEMBER';
+  document.getElementById('comm-delete-btn').style.display = 'none';
+  document.getElementById('comm-member-modal').classList.add('active');
+}
+
+function dashEditCommMember(i){
+  window.curCommKey = activeDashCommKey;
+  window.curCommIdx = i;
+  openCommMemberModal(activeDashCommKey, i);
+}
+
+function dashDeleteCommMember(i){
+  if(!confirm('مسح العضو؟')) return;
+  D.committees[activeDashCommKey].splice(i, 1);
+  syncStorage(); saveFirebaseData();
+  renderDashCommList();
+  if(activeCommittee === activeDashCommKey) renderCommitteePanel(activeDashCommKey);
+}
+
+function saveCommMember(){
+  if(!editCommKey) return;
+  if(!D.committees) D.committees = {OR:[],SM:[],HR:[],PR:[],TRAINING:[]};
+  const name   = document.getElementById('comm-edit-name').value.trim();
+  const role   = document.getElementById('comm-edit-role').value.trim();
+  const letter = document.getElementById('comm-edit-letter').value.trim();
+  if(!name) return alert('ادخل الاسم أولاً');
+  if(editCommIdx !== null){
+    D.committees[editCommKey][editCommIdx] = {...D.committees[editCommKey][editCommIdx], name, role, letter};
+  } else {
+    D.committees[editCommKey].push({id:Date.now(), name, role, letter, photo:null});
+  }
+  syncStorage(); saveFirebaseData();
+  if(activeCommittee === editCommKey) renderCommitteePanel(editCommKey);
+  renderDashCommList();
+  closeCommMemberModal();
+}
+
 function triggerCinematicLetter(name, role, fullLetterText) {
   if(!fullLetterText || fullLetterText.trim()==='') { fullLetterText = "كل التوفيق والتقدير لكم في القادم.. الحكاية مستمرة دائماً 💛"; }
   document.getElementById('type-author-el').textContent = name;
@@ -1370,8 +1461,11 @@ window.uploadFileToStorage = async function(file) {
     method: "POST",
     body: formData
   });
-  if(!res.ok) throw new Error("Cloudinary upload failed");
   const data = await res.json();
+  if(!res.ok) {
+    const errMsg = data?.error?.message || "Cloudinary upload failed";
+    throw new Error(errMsg);
+  }
   return data.secure_url;
 };
 
@@ -1403,7 +1497,7 @@ loadFirebaseData();
 // ====== UPLOADS — للأدمن بس ======
 
 window.onMemUploaded = async function(ev) {
-  if(currentRole === 'visitor' || currentRole === 'shahd') return;
+  if(window.currentRole === 'visitor' || window.currentRole === 'shahd') return;
   const f = ev.target.files[0]; if(!f) return;
   const mediaType = f.type.startsWith('video') ? 'video' : 'image';
   const cap  = prompt('أدخل وصف اللحظة:') || 'لحظة غالية';
@@ -1417,29 +1511,31 @@ window.onMemUploaded = async function(ev) {
 };
 
 window.onPhotoUploaded = async function(ev) {
-  if(currentRole === 'visitor') return;
+  if(window.currentRole === 'visitor') return;
   const f = ev.target.files[0]; if(!f || window.curIdx===null) return;
   try {
     const url = await window.uploadFileToStorage(f);
     D.team[window.curIdx].photo = url;
+    renderTeam(); renderDashTeam();
     alert('تم رفع الصورة ✓');
   } catch(e) { alert('فشل الرفع: ' + e.message); }
   ev.target.value = '';
 };
 
 window.onTimelinePhotoUploaded = async function(ev) {
-  if(currentRole === 'visitor') return;
+  if(window.currentRole === 'visitor') return;
   const f = ev.target.files[0]; if(!f || window.currentTlIdx===null) return;
   try {
     const url = await window.uploadFileToStorage(f);
     D.timeline[window.currentTlIdx].photo = url;
+    renderTimeline(); renderDashTimeline();
     alert('تم رفع الصورة ✓');
   } catch(e) { alert('فشل الرفع: ' + e.message); }
   ev.target.value = '';
 };
 
 window.onPlanetLogoUploaded = async function(ev) {
-  if(currentRole === 'visitor' || currentRole === 'shahd') return;
+  if(window.currentRole === 'visitor' || window.currentRole === 'shahd') return;
   const f = ev.target.files[0]; if(!f) return;
   try {
     const url = await window.uploadFileToStorage(f);
@@ -1449,21 +1545,22 @@ window.onPlanetLogoUploaded = async function(ev) {
 };
 
 window.onCommPhotoUpload = async function(ev) {
-  if(currentRole === 'visitor') return;
+  if(window.currentRole === 'visitor') return;
   const f = ev.target.files[0]; if(!f) return;
   if(window.curCommKey === null || window.curCommIdx === null) return;
   try {
     const url = await window.uploadFileToStorage(f);
     D.committees[window.curCommKey][window.curCommIdx].photo = url;
     syncStorage(); saveFirebaseData();
-    renderCommitteePanel(window.curCommKey);
+    if(activeCommittee === window.curCommKey) renderCommitteePanel(window.curCommKey);
+    renderDashCommList();
     alert('تم رفع الصورة ✓');
   } catch(e) { alert('فشل الرفع: ' + e.message); }
   ev.target.value = '';
 };
 
-
-  if(currentRole === 'visitor' || currentRole === 'shahd') return;
+window.onGoodbyeFrameUploaded = async function(ev) {
+  if(window.currentRole === 'visitor' || window.currentRole === 'shahd') return;
   const f = ev.target.files[0]; if(!f) return;
   try {
     const url = await window.uploadFileToStorage(f);
