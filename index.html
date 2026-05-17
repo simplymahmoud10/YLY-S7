@@ -154,6 +154,24 @@ section{position:relative;z-index:1;}
 
 /* FOOTER */
 footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);padding:60px;text-align:center;position:relative;z-index:1;}
+/* ====== COMMITTEES ====== */
+.committees-row{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:40px auto 0;max-width:900px;padding:0 20px;}
+.committee-pill{font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:var(--gold);border:1px solid rgba(201,168,76,0.35);background:rgba(5,14,36,0.8);padding:14px 32px;border-radius:2px;cursor:pointer;transition:all 0.3s;text-transform:uppercase;}
+.committee-pill:hover,.committee-pill.active{background:var(--gold);color:var(--bg-deep);border-color:var(--gold);box-shadow:0 0 24px var(--gold-glow);}
+.committee-members-panel{max-width:100%;margin:32px auto 0;padding:0;display:none;overflow:hidden;}
+.committee-members-panel.open{display:block;}
+.committee-members-grid{display:flex;overflow-x:auto;scroll-behavior:smooth;padding:20px 60px;gap:0;scrollbar-width:none;}
+.committee-members-grid::-webkit-scrollbar{display:none;}
+.comm-member-card{flex:0 0 180px;margin:0 12px;background:rgba(5,14,36,0.9);border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:20px 14px;text-align:center;transition:all 0.3s;}
+.comm-member-card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 20px 40px rgba(0,0,0,0.4),0 0 20px var(--gold-glow);}
+.comm-avatar{width:56px;height:56px;border-radius:50%;background:rgba(201,168,76,0.15);border:2px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:16px;font-weight:700;color:var(--gold);overflow:hidden;}
+.comm-avatar img{width:100%;height:100%;object-fit:cover;}
+.comm-name{font-family:'Orbitron',sans-serif;font-size:9px;color:var(--white);letter-spacing:1px;margin-bottom:5px;}
+.comm-role{font-size:9px;color:rgba(201,168,76,0.7);letter-spacing:1px;}
+.comm-letter-btn{background:transparent;border:1px solid rgba(201,168,76,0.3);color:var(--gold-light);font-size:12px;padding:5px 10px;border-radius:3px;cursor:pointer;margin-top:8px;transition:all 0.3s;}
+.comm-letter-btn:hover{background:rgba(201,168,76,0.1);}
+.committee-panel-title{font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:4px;color:var(--gold);text-align:center;margin-bottom:24px;text-transform:uppercase;}
+
 .footer-logo{font-family:'Orbitron',sans-serif;font-size:20px;font-weight:700;color:var(--gold-light);letter-spacing:4px;margin-bottom:28px;text-shadow:0 0 20px var(--gold-glow);}
 .footer-nav{display:flex;gap:36px;justify-content:center;margin-bottom:28px;list-style:none;flex-wrap:wrap;}
 .footer-nav a{font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:2px;color:var(--white-dim);text-decoration:none;text-transform:uppercase;transition:color 0.3s;}
@@ -340,7 +358,23 @@ footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);pa
       <button class="slider-arrow" onclick="document.getElementById('team-track-container').scrollLeft+=300">→</button>
     </div>
   </div>
-</section>
+
+  <!-- COMMITTEES -->
+  <div class="committees-row" id="committees-pills">
+    <button class="committee-pill" data-key="OR" onclick="toggleCommittee('OR')">OR FAMILY</button>
+    <button class="committee-pill" data-key="SM" onclick="toggleCommittee('SM')">SM FAMILY</button>
+    <button class="committee-pill" data-key="HR" onclick="toggleCommittee('HR')">HR FAMILY</button>
+    <button class="committee-pill" data-key="PR" onclick="toggleCommittee('PR')">PR FAMILY</button>
+    <button class="committee-pill" data-key="TRAINING" onclick="toggleCommittee('TRAINING')">TRAINING FAMILY</button>
+  </div>
+  <div class="committee-members-panel" id="committee-panel">
+    <div class="committee-panel-title" id="committee-panel-title"></div>
+    <div class="committee-members-grid" id="committee-members-grid"></div>
+    <div class="slider-arrows">
+      <button class="slider-arrow" onclick="document.getElementById('committee-members-grid').scrollLeft-=300">←</button>
+      <button class="slider-arrow" onclick="document.getElementById('committee-members-grid').scrollLeft+=300">→</button>
+    </div>
+  </div>
 
 <section id="moments">
   <div class="section-header reveal">
@@ -536,6 +570,23 @@ footer{background:rgba(1,4,13,0.98);border-top:1px solid rgba(201,168,76,0.1);pa
   </div>
 </div>
 
+<div class="m-overlay" id="comm-member-modal" onclick="if(event.target===this)closeCommMemberModal()">
+  <div class="m-box">
+    <button class="m-close" onclick="closeCommMemberModal()">✕</button>
+    <div class="dash-sec-title" id="comm-edit-title">EDIT MEMBER</div>
+    <div class="dash-field"><label class="dash-label">الاسم</label><input class="dash-input" id="comm-edit-name"></div>
+    <div class="dash-field"><label class="dash-label">الدور (بالإنجليزي)</label><input class="dash-input" id="comm-edit-role"></div>
+    <div class="dash-field"><label class="dash-label">الرسالة الشخصية</label><textarea class="dash-textarea" id="comm-edit-letter" rows="4"></textarea></div>
+    <div class="dash-field image-lock-field">
+      <label class="dash-label">الصورة</label>
+      <button class="dash-add-btn" onclick="document.getElementById('comm-photo-input').click()">رفع صورة</button>
+    </div>
+    <input type="file" id="comm-photo-input" class="hidden-file" accept="image/*" onchange="onCommPhotoUpload(event)">
+    <button class="dash-save" onclick="saveCommMember()">SAVE</button>
+    <button id="comm-delete-btn" class="dash-add-btn" style="margin-top:10px;background:rgba(255,80,80,0.15);border-color:rgba(255,80,80,0.4);color:#ff6b6b;" onclick="deleteCommMember()">DELETE MEMBER</button>
+  </div>
+</div>
+
 <div class="m-overlay" id="team-edit-modal">
   <div class="m-box">
     <button class="m-close" onclick="closePhotoModal()">✕</button>
@@ -606,10 +657,23 @@ const defaultD = {
     {id:3,name:'اسماء رفعت',role:'OR HEAD',letter:'التنظيم فن والفن حياة، كل لحظة في OR كانت تستاهل ✨',photo:null},
     {id:4,name:'محمد ياسر',role:'OR COORDINATION LEADER',letter:'كل تنسيق كان خطوة للأمام، شكراً للفريق الرائع 💪',photo:null},
     {id:5,name:'سهيلة السيد',role:'OR PLANNING LEADER',letter:'التخطيط أساس النجاح، وانتوا كنتم الأساس الحقيقي 🎯',photo:null},
-    {id:6,name:'أحمد السعيد',role:'PR HEAD',letter:'العلاقات العامة هي واجهتنا المشرقة، فخور بكل دقيقة معكم 🤝',photo:null},
-    {id:7,name:'ندى الشناوي',role:'HR HEAD',letter:'الموارد البشرية مش بس شغل، إحنا عيلة بتكبر وتدعم بعضها دايماً 🧡',photo:null},
-    {id:8,name:'أروى غالي',role:'LOGISTICS HEAD',letter:'خلف الكواليس بنصنع المستحيل، اللوجيستكس دايماً في الموعد 🛠️',photo:null},
-    {id:9,name:'محمود فؤاد',role:'DATA ANALYST & DEV',letter:'الأرقام والكود بيحكوا قصة نجاحنا، فخور بترك بصمتي هنا 💻',photo:null}
+    {id:6,name:'مريم شريف',role:'OR LOGISTICS LEADER',letter:'خلف الكواليس بنصنع المستحيل 🛠️',photo:null},
+    {id:7,name:'حبيبه ابراهيم',role:'HR HEAD',letter:'الموارد البشرية مش بس شغل، إحنا عيلة بتكبر وتدعم بعضها دايماً 🧡',photo:null},
+    {id:8,name:'شهد',role:'OR SUPERVISOR',letter:'',photo:null},
+    {id:9,name:'رتياج',role:'SM SUPERVISOR',letter:'',photo:null},
+    {id:10,name:'إيمان',role:'YLP SUPERVISOR',letter:'',photo:null},
+    {id:11,name:'رحمه خالد',role:'SM HEAD',letter:'السوشيال ميديا صوتنا للعالم 📱',photo:null},
+    {id:12,name:'زياد',role:'PHOTOGRAPHY LEADER',letter:'',photo:null},
+    {id:13,name:'دينا',role:'CONTENT LEADER',letter:'',photo:null},
+    {id:14,name:'هاجر',role:'GRAPHIC LEADER',letter:'',photo:null},
+    {id:15,name:'سعد',role:'MONTAGE LEADER',letter:'',photo:null},
+    {id:16,name:'هادي ياسر',role:'PR HEAD',letter:'العلاقات العامة هي واجهتنا المشرقة 🤝',photo:null},
+    {id:17,name:'امنيه سعد',role:'PR VICE HEAD',letter:'',photo:null},
+    {id:18,name:'احمد عوض',role:'MEDIA OFFICIAL',letter:'',photo:null},
+    {id:19,name:'شذا',role:'HR COORDINATOR (CENTRAL)',letter:'',photo:null},
+    {id:20,name:'احمد عبد العزيز',role:'HR COORDINATOR (CENTRAL)',letter:'',photo:null},
+    {id:21,name:'ابراهيم',role:'HR COORDINATOR (CENTRAL)',letter:'',photo:null},
+    {id:22,name:'محمود فؤاد',role:'DATA ANALYST & DEV',letter:'الأرقام والكود بيحكوا قصة نجاحنا، فخور بترك بصمتي هنا 💻',photo:null}
   ],
   memories:[
     {id:1,caption:'لقطة الإطلاق الأسطورية للمبادرة بجامعة كفر الشيخ',date:'SEP 2025',emoji:'🚀',img:null,type:'image'},
@@ -618,7 +682,41 @@ const defaultD = {
     {id:4,caption:'صناعة الأثر والنجاح الحقيقي في عيون الجميع',date:'JAN 2026',emoji:'🎉',img:null,type:'image'},
     {id:5,caption:'روح العمل الجماعي والمساندة في تخطي الصعاب',date:'FEB 2026',emoji:'⭐',img:null,type:'image'},
     {id:6,caption:'الوصول إلى قمة التميز وحصاد مجهود موسم كامل',date:'MAR 2026',emoji:'🏆',img:null,type:'image'}
-  ]
+  ],
+  committees:{
+    OR:[
+      {id:1,name:'محمد ياسر',role:'COORDINATION LEADER',letter:'',photo:null},
+      {id:2,name:'سهيلة السيد',role:'PLANNING LEADER',letter:'',photo:null},
+      {id:3,name:'مريم شريف',role:'LOGISTICS LEADER',letter:'',photo:null},
+      {id:4,name:'شهد',role:'OR SUPERVISOR',letter:'',photo:null}
+    ],
+    SM:[
+      {id:1,name:'رحمه خالد',role:'SM HEAD',letter:'السوشيال ميديا صوتنا للعالم 📱',photo:null},
+      {id:2,name:'زياد',role:'PHOTOGRAPHY LEADER',letter:'',photo:null},
+      {id:3,name:'دينا',role:'CONTENT LEADER',letter:'',photo:null},
+      {id:4,name:'هاجر',role:'GRAPHIC LEADER',letter:'',photo:null},
+      {id:5,name:'سعد',role:'MONTAGE LEADER',letter:'',photo:null},
+      {id:6,name:'رتياج',role:'SM SUPERVISOR',letter:'',photo:null}
+    ],
+    HR:[
+      {id:1,name:'حبيبه ابراهيم',role:'HR HEAD',letter:'الموارد البشرية مش بس شغل، إحنا عيلة 🧡',photo:null},
+      {id:2,name:'شذا',role:'HR COORDINATOR (CENTRAL)',letter:'',photo:null},
+      {id:3,name:'احمد عبد العزيز',role:'HR COORDINATOR (CENTRAL)',letter:'',photo:null},
+      {id:4,name:'ابراهيم',role:'HR COORDINATOR (CENTRAL)',letter:'',photo:null},
+      {id:5,name:'إيمان',role:'YLP SUPERVISOR',letter:'',photo:null}
+    ],
+    PR:[
+      {id:1,name:'هادي ياسر',role:'PR HEAD',letter:'العلاقات العامة هي واجهتنا المشرقة 🤝',photo:null},
+      {id:2,name:'امنيه سعد',role:'PR VICE HEAD',letter:'',photo:null},
+      {id:3,name:'احمد عوض',role:'MEDIA OFFICIAL',letter:'',photo:null}
+    ],
+    TRAINING:[
+      {id:1,name:'سعد',role:'TRAINING HEAD',letter:'',photo:null},
+      {id:2,name:'حنين سليمان',role:'TRAINING MEMBER',letter:'',photo:null},
+      {id:3,name:'شهد رجب',role:'TRAINING MEMBER',letter:'',photo:null},
+      {id:4,name:'يارا',role:'TRAINING MEMBER',letter:'',photo:null}
+    ]
+  }
 };
 
 let D = JSON.parse(localStorage.getItem('YLY_CUSTOM_DATA')) || defaultD;
@@ -896,7 +994,116 @@ function renderTeam(){
   refreshScrollReveals();
 }
 
-// ====== HANDWRITTEN INTERACTIVE TYPEWRITER CONTROLLER ======
+// ====== COMMITTEES ======
+let activeCommittee = null;
+let activeCommIdx = null;
+
+function toggleCommittee(key){
+  const panel = document.getElementById('committee-panel');
+  const pills = document.querySelectorAll('.committee-pill');
+  pills.forEach(p => p.classList.remove('active'));
+
+  if(activeCommittee === key){
+    activeCommittee = null;
+    panel.classList.remove('open');
+    return;
+  }
+  activeCommittee = key;
+  pills.forEach(p => { if(p.dataset.key === key) p.classList.add('active'); });
+  renderCommitteePanel(key);
+  panel.classList.add('open');
+  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function renderCommitteePanel(key){
+  if(!D.committees) D.committees = {OR:[],SM:[],HR:[],PR:[]};
+  const members = D.committees[key] || [];
+  document.getElementById('committee-panel-title').textContent = key + ' FAMILY';
+  const grid = document.getElementById('committee-members-grid');
+  grid.innerHTML = '';
+  members.forEach((m, i) => {
+    const avi = m.photo ? `<img src="${m.photo}" alt="${m.name}">` : `<span>${initials(m.name)}</span>`;
+    const card = document.createElement('div');
+    card.className = 'comm-member-card';
+    if(currentRole !== 'visitor') card.style.cursor = 'pointer';
+    card.innerHTML = `
+      <div class="comm-avatar">${avi}</div>
+      <div class="comm-name">${m.name}</div>
+      <div class="comm-role">${m.role}</div>
+      <button class="comm-letter-btn" onclick="event.stopPropagation();triggerCinematicLetter('${m.name.replace(/'/g,"\\'")}','${m.role}','${(m.letter||'').replace(/\n/g,'\\n').replace(/'/g,"\\'")}')">✉</button>
+    `;
+    if(currentRole !== 'visitor'){
+      card.onclick = () => { window.curCommKey=key; window.curCommIdx=i; openCommMemberModal(key, i); };
+    }
+    grid.appendChild(card);
+  });
+
+  // زر إضافة عضو — للأدمن بس
+  if(currentRole !== 'visitor'){
+    const addBtn = document.createElement('div');
+    addBtn.className = 'comm-member-card';
+    addBtn.style.cssText = 'border-style:dashed;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;opacity:0.6;';
+    addBtn.innerHTML = `<div style="font-size:28px;color:var(--gold)">+</div><div class="comm-role">ADD MEMBER</div>`;
+    addBtn.onclick = () => openCommMemberModal(key, null);
+    grid.appendChild(addBtn);
+  }
+}
+
+// ====== COMMITTEE MEMBER EDIT MODAL ======
+let editCommKey = null;
+let editCommIdx = null;
+
+function openCommMemberModal(key, idx){
+  if(currentRole === 'visitor') return;
+  editCommKey = key;
+  editCommIdx = idx;
+  if(!D.committees) D.committees = {OR:[],SM:[],HR:[],PR:[]};
+  const m = idx !== null ? D.committees[key][idx] : null;
+  document.getElementById('comm-edit-name').value  = m ? m.name   : '';
+  document.getElementById('comm-edit-role').value  = m ? m.role   : key + ' MEMBER';
+  document.getElementById('comm-edit-letter').value= m ? m.letter : '';
+  document.getElementById('comm-edit-title').textContent = idx !== null ? 'EDIT MEMBER' : 'ADD MEMBER';
+  document.getElementById('comm-delete-btn').style.display = idx !== null ? 'block' : 'none';
+  document.getElementById('comm-member-modal').classList.add('active');
+}
+
+function closeCommMemberModal(){
+  document.getElementById('comm-member-modal').classList.remove('active');
+  editCommKey = null; editCommIdx = null;
+}
+
+function saveCommMember(){
+  if(!editCommKey) return;
+  if(!D.committees) D.committees = {OR:[],SM:[],HR:[],PR:[]};
+  const name   = document.getElementById('comm-edit-name').value.trim();
+  const role   = document.getElementById('comm-edit-role').value.trim();
+  const letter = document.getElementById('comm-edit-letter').value.trim();
+  if(!name) return alert('ادخل الاسم أولاً');
+  if(editCommIdx !== null){
+    D.committees[editCommKey][editCommIdx] = {...D.committees[editCommKey][editCommIdx], name, role, letter};
+  } else {
+    D.committees[editCommKey].push({id:Date.now(), name, role, letter, photo:null});
+  }
+  syncStorage(); saveFirebaseData();
+  renderCommitteePanel(editCommKey);
+  closeCommMemberModal();
+}
+
+function deleteCommMember(){
+  if(editCommKey === null || editCommIdx === null) return;
+  if(!confirm('مسح العضو؟')) return;
+  D.committees[editCommKey].splice(editCommIdx, 1);
+  syncStorage(); saveFirebaseData();
+  renderCommitteePanel(editCommKey);
+  closeCommMemberModal();
+}
+
+function onCommPhotoUploaded(ev){
+  // handled by firebase module
+}
+
+window.curCommKey = null;
+window.curCommIdx = null;
 let typeTimer = null;
 function triggerCinematicLetter(name, role, fullLetterText) {
   if(!fullLetterText || fullLetterText.trim()==='') { fullLetterText = "كل التوفيق والتقدير لكم في القادم.. الحكاية مستمرة دائماً 💛"; }
@@ -1177,6 +1384,11 @@ window.saveFirebaseData = async function () {
   safeD.team     = safeD.team.map(m => ({...m, photo: stripBase64(m.photo)}));
   safeD.timeline = safeD.timeline.map(t => ({...t, photo: stripBase64(t.photo)}));
   safeD.memories = safeD.memories.map(m => ({...m, img: stripBase64(m.img)}));
+  if(safeD.committees){
+    Object.keys(safeD.committees).forEach(key => {
+      safeD.committees[key] = safeD.committees[key].map(m => ({...m, photo: stripBase64(m.photo)}));
+    });
+  }
   await setDoc(doc(db, "siteData", "main"), safeD);
   console.log("Saved to Firestore 🔥");
 };
@@ -1236,7 +1448,21 @@ window.onPlanetLogoUploaded = async function(ev) {
   } catch(e) { alert('فشل الرفع: ' + e.message); }
 };
 
-window.onGoodbyeFrameUploaded = async function(ev) {
+window.onCommPhotoUpload = async function(ev) {
+  if(currentRole === 'visitor') return;
+  const f = ev.target.files[0]; if(!f) return;
+  if(window.curCommKey === null || window.curCommIdx === null) return;
+  try {
+    const url = await window.uploadFileToStorage(f);
+    D.committees[window.curCommKey][window.curCommIdx].photo = url;
+    syncStorage(); saveFirebaseData();
+    renderCommitteePanel(window.curCommKey);
+    alert('تم رفع الصورة ✓');
+  } catch(e) { alert('فشل الرفع: ' + e.message); }
+  ev.target.value = '';
+};
+
+
   if(currentRole === 'visitor' || currentRole === 'shahd') return;
   const f = ev.target.files[0]; if(!f) return;
   try {
